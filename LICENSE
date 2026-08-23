@@ -1,0 +1,49 @@
+OxiTide End User License Agreement (EULA)
+
+Copyright (c) 2026 Eason Ye. All rights reserved.
+
+OxiTide is proprietary software distributed free of charge ("freeware").
+By downloading, installing, or using OxiTide you agree to the terms below.
+
+1. LICENSE GRANT
+   You are granted a personal, non-exclusive, non-transferable, revocable
+   license to install and use unmodified OxiTide binaries, free of charge,
+   on devices you own or control.
+
+2. RESTRICTIONS
+   You may NOT:
+   a) modify, adapt, translate, or create derivative works of the software;
+   b) reverse engineer, decompile, or disassemble the software, except to
+      the extent such restriction is prohibited by applicable law;
+   c) redistribute, sell, rent, lease, sublicense, or bundle the software
+      without prior written permission from the copyright holder;
+   d) remove or alter any proprietary notices contained in the software.
+
+3. THIRD-PARTY COMPONENTS
+   OxiTide incorporates open-source components licensed under their own
+   terms. Their notices and license texts are provided in the
+   THIRD-PARTY-NOTICES file distributed with the software. Nothing in this
+   EULA restricts rights granted to you by those licenses for those
+   components.
+
+4. TIDAL
+   OxiTide is an independent project and is not affiliated with, endorsed
+   by, or sponsored by TIDAL. Use of the TIDAL service through OxiTide
+   requires a valid TIDAL account and is subject to TIDAL's own terms of
+   service. You are responsible for complying with them.
+
+5. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+6. LIMITATION OF LIABILITY
+   IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES,
+   OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR
+   OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR
+   THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+7. TERMINATION
+   This license terminates automatically if you breach any of its terms.
+   Upon termination you must cease using and delete all copies of the
+   software.
