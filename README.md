@@ -17,7 +17,7 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 ## Install
 
 OxiTide is **free to use**. Packages for every supported distribution are on the
-[**Releases**](https://github.com/yelanxin/OxiTide-release/releases) page.
+[**Releases**](https://github.com/yelanxin/OxiTide/releases) page.
 
 | Distribution | Install |
 |---|---|
@@ -52,7 +52,7 @@ Looking for the open-source edition? The Python/GTK version lives on at
 ## Feedback
 
 Bug reports and feature requests are welcome in the
-[Issues](https://github.com/yelanxin/OxiTide-release/issues) of this repository.
+[Issues](https://github.com/yelanxin/OxiTide/issues) of this repository.
 
 ---
 
