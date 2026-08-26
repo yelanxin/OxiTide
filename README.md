@@ -10,7 +10,7 @@
   <img src="screenshots/logo.png" width="160" alt="OxiTide logo"/>
 </p>
 
-# OxiTide
+<h1 align="center">OxiTide</h1>
 
 **OxiTide** is a high-resolution TIDAL player for Linux, written entirely in Rust.
 
