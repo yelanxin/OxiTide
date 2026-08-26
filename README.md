@@ -6,6 +6,10 @@
 ![Free to use](https://img.shields.io/badge/Freeware-free%20to%20use-brightgreen)
 [![Latest release](https://img.shields.io/github/v/release/yelanxin/OxiTide?label=release&color=orange)](https://github.com/yelanxin/OxiTide/releases)
 
+<p align="center">
+  <img src="screenshots/logo.png" width="160" alt="OxiTide logo"/>
+</p>
+
 # OxiTide
 
 **OxiTide** is a high-resolution TIDAL player for Linux, written entirely in Rust.
