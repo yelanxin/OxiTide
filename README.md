@@ -1,10 +1,10 @@
+![OxiTide — Hi-Res music streaming, native on Linux](screenshots/banner.png)
+
 # OxiTide
 
 **OxiTide** is a high-resolution TIDAL player for Linux, written entirely in Rust.
 
 It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) — same bit-perfect playback engine, same USB Rawlink direct-to-DAC output, rebuilt from the ground up with a native Rust UI: faster startup, lower memory, no Python runtime.
-
-![OxiTide — Home](screenshots/oxitide-home.png)
 
 ## Highlights
 
