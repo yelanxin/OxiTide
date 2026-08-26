@@ -1,5 +1,12 @@
 ![OxiTide — Hi-Res music streaming, native on Linux](screenshots/banner.png)
 
+![Made with Rust](https://img.shields.io/badge/Made%20with-Rust-B7410E?logo=rust&logoColor=white)
+![Platform: Linux](https://img.shields.io/badge/Platform-Linux-FCC624?logo=linux&logoColor=black)
+![Desktop: GNOME](https://img.shields.io/badge/Desktop-GNOME-4A86CF?logo=gnome&logoColor=white)
+![Free to use](https://img.shields.io/badge/Freeware-free%20to%20use-brightgreen)
+[![Latest release](https://img.shields.io/github/v/release/yelanxin/OxiTide?label=release&color=orange)](https://github.com/yelanxin/OxiTide/releases)
+[![Downloads](https://img.shields.io/github/downloads/yelanxin/OxiTide/total?color=blue)](https://github.com/yelanxin/OxiTide/releases)
+
 # OxiTide
 
 **OxiTide** is a high-resolution TIDAL player for Linux, written entirely in Rust.
