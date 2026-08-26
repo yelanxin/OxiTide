@@ -58,6 +58,21 @@ sudo snap connect oxitide:alsa
 sudo snap connect oxitide:raw-usb
 ```
 
+### Flatpak
+
+Available on any distribution from the official OxiTide Flatpak repository
+([flatpak.oxitide.com](https://flatpak.oxitide.com)):
+
+```bash
+flatpak install --user https://flatpak.oxitide.com/oxitide.flatpakref
+```
+
+Launch it from the app menu, or with
+`flatpak run io.github.yelanxin.OxiTide`. The GNOME runtime is fetched from
+Flathub automatically. For bit-perfect USB Rawlink output the app asks you to
+install a one-line udev rule on first use (the Flatpak sandbox cannot install
+it itself).
+
 ### Manual install
 
 | Distribution | Install |
@@ -79,7 +94,7 @@ alongside hiresTI.
 
 Re-run the quick-install command above (it always picks the latest release and
 upgrades in place), or download the new package and install it the same way.
-AUR: `yay -Syu`. The app also checks for new
+AUR: `yay -Syu`. Flatpak: `flatpak update`. Snap updates automatically. The app also checks for new
 releases itself (**Check for Updates** in the menu).
 
 ## License
