@@ -59,11 +59,11 @@ sudo snap connect oxitide:raw-usb
 
 | Distribution | Install |
 |---|---|
-| Arch Linux / Manjaro / CachyOS | `yay -S oxitide-bin` (AUR: [oxitide-bin](https://aur.archlinux.org/packages/oxitide-bin)) — or `sudo pacman -U oxitide-<ver>-1-x86_64_archlinux.pkg.tar.zst` |
-| Debian 13+ | `sudo apt install ./oxitide_<ver>_amd64_debian13.deb` |
-| Ubuntu 24.04 / 26.04 | `sudo apt install ./oxitide_<ver>_amd64_ubuntu2404.deb` (or `_ubuntu2604.deb`) |
-| Fedora 43 / 44 | `sudo dnf install ./oxitide-<ver>-1.fedora.x86_64_fedora44.rpm` (or `_fedora43.rpm`) |
-| openSUSE Tumbleweed | `sudo zypper install ./oxitide-<ver>-1.opensuse.x86_64_opensuse_tumbleweed.rpm` |
+| <img src="https://cdn.simpleicons.org/archlinux" width="16" alt=""/> Arch Linux / Manjaro / CachyOS | `yay -S oxitide-bin` (AUR: [oxitide-bin](https://aur.archlinux.org/packages/oxitide-bin)) — or `sudo pacman -U oxitide-<ver>-1-x86_64_archlinux.pkg.tar.zst` |
+| <img src="https://cdn.simpleicons.org/debian" width="16" alt=""/> Debian 13+ | `sudo apt install ./oxitide_<ver>_amd64_debian13.deb` |
+| <img src="https://cdn.simpleicons.org/ubuntu" width="16" alt=""/> Ubuntu 24.04 / 26.04 | `sudo apt install ./oxitide_<ver>_amd64_ubuntu2404.deb` (or `_ubuntu2604.deb`) |
+| <img src="https://cdn.simpleicons.org/fedora" width="16" alt=""/> Fedora 43 / 44 | `sudo dnf install ./oxitide-<ver>-1.fedora.x86_64_fedora44.rpm` (or `_fedora43.rpm`) |
+| <img src="https://cdn.simpleicons.org/opensuse" width="16" alt=""/> openSUSE Tumbleweed | `sudo zypper install ./oxitide-<ver>-1.opensuse.x86_64_opensuse_tumbleweed.rpm` |
 
 Requirements: a TIDAL subscription and GTK 4.14+ (Debian 12 is not supported).
 For bit-perfect USB Rawlink output the package installs a udev rule and a polkit
