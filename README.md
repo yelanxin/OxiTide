@@ -32,8 +32,9 @@ release, and installs it with your native package manager
 
 ### Snap
 
-Available from the [Snap Store](https://snapcraft.io/oxitide) on any
-distribution with snapd:
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/oxitide)
+
+Available on any distribution with snapd:
 
 ```bash
 sudo snap install oxitide
