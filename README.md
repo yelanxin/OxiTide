@@ -19,6 +19,19 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 OxiTide is **free to use**. Packages for every supported distribution are on the
 [**Releases**](https://github.com/yelanxin/OxiTide/releases) page.
 
+### Quick install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yelanxin/OxiTide/main/install.sh | bash
+```
+
+Detects your distribution, downloads the matching package from the latest
+release, and installs it with your native package manager
+(x86_64: Arch, Debian 13+, Ubuntu 24.04+, Fedora 43+, openSUSE Tumbleweed
+— and their derivatives).
+
+### Manual install
+
 | Distribution | Install |
 |---|---|
 | Arch Linux / Manjaro / CachyOS | `yay -S oxitide-bin` (AUR: [oxitide-bin](https://aur.archlinux.org/packages/oxitide-bin)) — or `sudo pacman -U oxitide-<ver>-1-x86_64_archlinux.pkg.tar.zst` |
@@ -36,8 +49,9 @@ alongside hiresTI.
 
 ### Updating
 
-Packages: download the new version and install it the same way (the package
-manager upgrades in place). AUR: `yay -Syu`. The app also checks for new
+Re-run the quick-install command above (it always picks the latest release and
+upgrades in place), or download the new package and install it the same way.
+AUR: `yay -Syu`. The app also checks for new
 releases itself (**Check for Updates** in the menu).
 
 ## License
