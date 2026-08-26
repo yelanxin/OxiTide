@@ -30,6 +30,23 @@ release, and installs it with your native package manager
 (x86_64: Arch, Debian 13+, Ubuntu 24.04+, Fedora 43+, openSUSE Tumbleweed
 — and their derivatives).
 
+### Snap
+
+Available from the [Snap Store](https://snapcraft.io/oxitide) on any
+distribution with snapd:
+
+```bash
+sudo snap install oxitide
+```
+
+If audio output or your USB DAC is not detected, connect the audio interfaces
+once (not needed after the store enables auto-connection):
+
+```bash
+sudo snap connect oxitide:alsa
+sudo snap connect oxitide:raw-usb
+```
+
 ### Manual install
 
 | Distribution | Install |
