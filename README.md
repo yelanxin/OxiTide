@@ -1,8 +1,9 @@
 ![OxiTide — Hi-Res music streaming, native on Linux](screenshots/banner.png)
 
 ![Made with Rust](https://img.shields.io/badge/Made%20with-Rust-B7410E?logo=rust&logoColor=white)
-![Platform: Linux](https://img.shields.io/badge/Platform-Linux-FCC624?logo=linux&logoColor=black)
+![Platform: Linux · macOS](https://img.shields.io/badge/Platform-Linux%20%C2%B7%20macOS-FCC624?logo=linux&logoColor=black)
 ![UI: GTK4 · libadwaita](https://img.shields.io/badge/UI-GTK4%20%C2%B7%20libadwaita-4A86CF?logo=gnome&logoColor=white)
+![UI: SwiftUI](https://img.shields.io/badge/UI-SwiftUI-F05138?logo=swift&logoColor=white)
 ![Free to use](https://img.shields.io/badge/Freeware-free%20to%20use-brightgreen)
 [![Latest release](https://img.shields.io/github/v/release/yelanxin/OxiTide?label=release&color=orange)](https://github.com/yelanxin/OxiTide/releases)
 
@@ -12,24 +13,65 @@
 
 <h1 align="center">OxiTide</h1>
 
-**OxiTide** is a high-resolution TIDAL player for Linux, written entirely in Rust.
+**OxiTide** is a high-resolution TIDAL player for Linux and macOS, written in Rust — a GTK4 front-end on Linux, a native SwiftUI front-end on macOS, one shared playback engine.
 
 It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) — same bit-perfect playback engine, same USB Rawlink direct-to-DAC output, rebuilt from the ground up with a native Rust UI: faster startup, lower memory, no Python runtime.
 
 ## Highlights
 
 - **Bit-perfect playback** — untouched PCM straight to your DAC
-- **USB Rawlink** — direct USB audio transport, bypassing the OS mixer entirely
+- **USB Rawlink** (Linux) — direct USB audio transport, bypassing the OS mixer entirely
+- **CoreAudio Exclusive mode** (macOS) — hog mode plus integer mode, the DAC's native rate and format
 - **Hi-Res / FLAC streaming** with gapless playback
 - **Native performance** — a single self-contained binary, instant startup
 - Spectrum visualizer, level meter, synced lyrics, MPRIS integration
 
 ## Install
 
-OxiTide is **free to use**. Packages for every supported distribution are on the
-[**Releases**](https://github.com/yelanxin/OxiTide/releases) page.
+OxiTide is **free to use**. Packages for every supported distribution and the
+macOS app are on the [**Releases**](https://github.com/yelanxin/OxiTide/releases) page.
 
-### Quick install
+### macOS
+
+Download `OxiTide-<ver>-macos-universal.zip` from the latest release (Apple
+silicon and Intel in one bundle, macOS 14 or later), unzip it, and move
+`OxiTide.app` to Applications. The build is not notarized yet: on first launch
+macOS will refuse to open it — go to **System Settings → Privacy & Security**
+and choose **Open Anyway**, or right-click the app and choose Open.
+
+Sign in with the **Login to TIDAL** button (browser sign-in; a device code is
+offered as a fallback). For bit-perfect playback turn on **Exclusive access**
+in Settings → Audio: OxiTide takes the device in CoreAudio hog mode and runs it
+at the track's own rate and bit depth. Shared mode plays through the system
+mixer at whatever rate the device is set to.
+
+Settings and login live in `~/Library/Application Support/OxiTide`; logs are
+written to `~/Library/Logs/OxiTide/oxitide.log`.
+
+#### What the macOS build has, and what is still to come
+
+The first macOS release covers browsing and playback end to end; some of the
+Linux build's extras have not been ported yet.
+
+| Feature | Linux | macOS |
+|---|---|---|
+| Discover (Home / New / Top / Hi-Res / Genres / Decades / Moods), search | ✓ | ✓ |
+| Library: tracks, albums, artists, playlists, mixes, uploads, history | ✓ | ✓ |
+| Favourites, add to playlist, Play Next / Add to Queue, queue drawer | ✓ | ✓ |
+| Now Playing page, synced lyrics, spectrum visualizer, play modes | ✓ | ✓ |
+| Bit-perfect exclusive output, hardware volume, streaming quality | ✓ | ✓ |
+| Accent colour, compact sidebar, grid / list layouts | – | ✓ |
+| DSP chain (PEQ, convolution, tube / tape, widener, limiter, resampler) and presets | ✓ | planned |
+| LUFS / DR meter | ✓ | planned |
+| Last.fm / ListenBrainz scrobbling | ✓ | planned |
+| Media keys, system Now Playing panel, menu bar icon | ✓ (MPRIS, tray) | planned |
+| Queue reordering / removal, click-to-seek lyrics, search history | ✓ | planned |
+| Remote control HTTP API, mini player window, update check | ✓ | later |
+| USB Rawlink direct-to-DAC transport | ✓ | not applicable (CoreAudio hog mode instead) |
+
+### Linux
+
+#### Quick install
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yelanxin/OxiTide/main/install.sh | bash
@@ -40,7 +82,7 @@ release, and installs it with your native package manager
 (x86_64: Arch, Debian 13+, Ubuntu 24.04+, Fedora 43+, openSUSE Tumbleweed
 — and their derivatives).
 
-### Snap
+#### Snap
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/oxitide)
 
@@ -58,7 +100,7 @@ sudo snap connect oxitide:alsa
 sudo snap connect oxitide:raw-usb
 ```
 
-### Flatpak
+#### Flatpak
 
 Available on any distribution from the official OxiTide Flatpak repository
 ([flatpak.oxitide.com](https://flatpak.oxitide.com)):
@@ -73,7 +115,7 @@ Flathub automatically. For bit-perfect USB Rawlink output the app asks you to
 install a one-line udev rule on first use (the Flatpak sandbox cannot install
 it itself).
 
-### Manual install
+#### Manual install
 
 | Distribution | Install |
 |---|---|
@@ -90,7 +132,7 @@ action so the app can claim your DAC — the first use asks for authorization.
 Settings and login live in `~/.config/oxitide`, so OxiTide installs cleanly
 alongside hiresTI.
 
-### Updating
+#### Updating
 
 Re-run the quick-install command above (it always picks the latest release and
 upgrades in place), or download the new package and install it the same way.
