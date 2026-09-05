@@ -33,9 +33,11 @@ macOS app are on the [**Releases**](https://github.com/yelanxin/OxiTide/releases
 
 ### macOS
 
-Download `OxiTide-<ver>-macos-universal.zip` from the latest release (Apple
-silicon and Intel in one bundle, macOS 14 or later), unzip it, and move
-`OxiTide.app` to Applications. The build is not notarized yet: on first launch
+Download the newest `OxiTide-<ver>-macos-universal.zip` from the
+[Releases](https://github.com/yelanxin/OxiTide/releases) page (Apple silicon
+and Intel in one bundle, macOS 14 or later), unzip it, and move `OxiTide.app`
+to Applications. macOS builds ship on their own schedule, so the newest macOS
+zip may sit on a different release than the newest Linux packages. The build is not notarized yet: on first launch
 macOS will refuse to open it — go to **System Settings → Privacy & Security**
 and choose **Open Anyway**, or right-click the app and choose Open.
 
@@ -50,23 +52,26 @@ written to `~/Library/Logs/OxiTide/oxitide.log`.
 
 #### What the macOS build has, and what is still to come
 
-The first macOS release covers browsing and playback end to end; some of the
-Linux build's extras have not been ported yet.
+The macOS build covers browsing and playback end to end; a few of the Linux
+build's extras have not been ported yet.
 
 | Feature | Linux | macOS |
 |---|---|---|
 | Discover (Home / New / Top / Hi-Res / Genres / Decades / Moods), search | ✓ | ✓ |
 | Library: tracks, albums, artists, playlists, mixes, uploads, history | ✓ | ✓ |
 | Favourites, add to playlist, Play Next / Add to Queue, queue drawer | ✓ | ✓ |
-| Now Playing page, synced lyrics, spectrum visualizer, play modes | ✓ | ✓ |
-| Bit-perfect exclusive output, hardware volume, streaming quality | ✓ | ✓ |
+| Now Playing page with Queue / Album / Suggested (track radio) / Lyrics tabs, spectrum visualizer, play modes | ✓ | ✓ |
+| Lyrics drawer with synced, click-to-seek lyrics | ✓ | ✓ |
+| Mini player | ✓ | ✓ |
+| Bit-perfect exclusive output, hardware volume (with a software-gain fallback), streaming quality | ✓ | ✓ |
+| Last.fm / ListenBrainz scrobbling | ✓ | ✓ |
+| Media keys, system Now Playing panel (Control Center, lock screen) | ✓ (MPRIS) | ✓ |
 | Accent colour, compact sidebar, grid / list layouts | – | ✓ |
 | DSP chain (PEQ, convolution, tube / tape, widener, limiter, resampler) and presets | ✓ | planned |
 | LUFS / DR meter | ✓ | planned |
-| Last.fm / ListenBrainz scrobbling | ✓ | planned |
-| Media keys, system Now Playing panel, menu bar icon | ✓ (MPRIS, tray) | planned |
-| Queue reordering / removal, click-to-seek lyrics, search history | ✓ | planned |
-| Remote control HTTP API, mini player window, update check | ✓ | later |
+| Menu bar / tray icon | ✓ | planned |
+| Queue reordering / removal, search history | ✓ | planned |
+| Remote control HTTP API, update check | ✓ | later |
 | USB Rawlink direct-to-DAC transport | ✓ | not applicable (CoreAudio hog mode instead) |
 
 ### Linux
