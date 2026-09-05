@@ -33,7 +33,17 @@ macOS app are on the [**Releases**](https://github.com/yelanxin/OxiTide/releases
 
 ### macOS
 
-Download the newest `OxiTide-<ver>-macos-universal.zip` from the
+Quick install:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yelanxin/OxiTide/main/install.sh | bash
+```
+
+Downloads the newest macOS build, verifies its checksum and puts
+`OxiTide.app` in Applications, cleared to open on first launch. Re-run it to
+update.
+
+Or by hand: download the newest `OxiTide-<ver>-macos-universal.zip` from the
 [Releases](https://github.com/yelanxin/OxiTide/releases) page (Apple silicon
 and Intel in one bundle, macOS 14 or later), unzip it, and move `OxiTide.app`
 to Applications. macOS builds ship on their own schedule, so the newest macOS
@@ -83,10 +93,10 @@ build's extras have not been ported yet.
 curl -fsSL https://raw.githubusercontent.com/yelanxin/OxiTide/main/install.sh | bash
 ```
 
-Detects your distribution, downloads the matching package from the latest
-release, and installs it with your native package manager
+Detects your distribution, downloads the matching package from the newest
+release that has one, and installs it with your native package manager
 (x86_64: Arch, Debian 13+, Ubuntu 24.04+, Fedora 43+, openSUSE Tumbleweed
-— and their derivatives).
+— and their derivatives). The same script installs the macOS build on a Mac.
 
 #### Snap
 
