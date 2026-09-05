@@ -171,6 +171,8 @@ Looking for the open-source edition? The Python/GTK version lives on at
 Bug reports and feature requests are welcome in the
 [Issues](https://github.com/yelanxin/OxiTide/issues) of this repository.
 
+
+
 ---
 
 *OxiTide is an independent project and is not affiliated with or endorsed by TIDAL.*
