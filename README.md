@@ -26,6 +26,8 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 - **Native performance** — a single self-contained binary, instant startup
 - Spectrum visualizer, level meter, synced lyrics, MPRIS integration
 
+![OxiTide on macOS — Home with the spectrum visualizer](screenshots/macos-04-home-visualizer.png)
+
 ## Install
 
 OxiTide is **free to use**. Packages for every supported distribution and the
