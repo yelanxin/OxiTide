@@ -66,10 +66,11 @@ build's extras have not been ported yet.
 | Bit-perfect exclusive output, hardware volume (with a software-gain fallback), streaming quality | ✓ | ✓ |
 | Last.fm / ListenBrainz scrobbling | ✓ | ✓ |
 | Media keys, system Now Playing panel (Control Center, lock screen) | ✓ (MPRIS) | ✓ |
+| Menu bar / tray icon with playback controls; close hides the window | ✓ | ✓ |
+| Keyboard shortcuts (Space, ← / →, S, W, Q, L, Esc) | ✓ | ✓ |
 | Accent colour, compact sidebar, grid / list layouts | – | ✓ |
 | DSP chain (PEQ, convolution, tube / tape, widener, limiter, resampler) and presets | ✓ | planned |
 | LUFS / DR meter | ✓ | planned |
-| Menu bar / tray icon | ✓ | planned |
 | Queue reordering / removal, search history | ✓ | planned |
 | Remote control HTTP API, update check | ✓ | later |
 | USB Rawlink direct-to-DAC transport | ✓ | not applicable (CoreAudio hog mode instead) |
