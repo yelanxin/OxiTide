@@ -77,35 +77,27 @@ A few of the Linux build's extras are not ported yet — the
 
 ### Windows
 
-Windows 10 (1809 or later) and Windows 11, 64-bit. Two downloads on the
-[Releases](https://github.com/yelanxin/OxiTide/releases) page — take either:
+Windows 10 (1809 or later) or Windows 11, 64-bit. Two downloads on the
+[Releases](https://github.com/yelanxin/OxiTide/releases) page, neither
+needing a runtime installed first:
 
 | Download | What it does |
 |---|---|
 | `OxiTide-<ver>-windows-x64.exe` | Installs into Program Files, with a Start menu entry and an uninstall entry |
 | `OxiTide-<ver>-windows-x64-portable.zip` | Unzip and run `OxiTide.exe` from anywhere — nothing is installed |
 
-Neither needs a runtime installed first. The builds are not code-signed
-yet, so Windows shows **"Windows protected your PC"** the first time:
-choose **More info → Run anyway**.
+The builds are not code-signed yet, so the first launch shows **"Windows
+protected your PC"**: choose **More info → Run anyway**.
 
-Sign in with the account button at the foot of the sidebar (browser
-sign-in). Output goes through **WASAPI in exclusive mode**, which is on by
-default: the system mixer is out of the path and the device runs at the
-track's own sample rate and bit depth, so a 16-bit/44.1 kHz track reaches
-the DAC as 16-bit/44.1 kHz. Where the endpoint has its own volume control
-the slider drives that instead of scaling samples — on a USB DAC that is
-its hardware volume. Pick the endpoint and turn exclusive mode off (for
-shared playback alongside other apps) in **Settings → Output**.
+Output goes through **WASAPI in exclusive mode**, on by default: the system
+mixer is out of the path and the device runs at the track's own rate and bit
+depth. Pick the endpoint, or turn exclusive off, in **Settings → Output**.
+Settings and the session token live in `%APPDATA%\OxiTide`, the engine's
+`engine.log` beside the executable.
 
-Settings and the session token live in `%APPDATA%\OxiTide`; the engine
-writes `engine.log` beside the executable, and **Settings → Events** shows
-what it negotiated with the device.
-
-This first Windows build covers browsing and playback end to end. The Now
-Playing page, the visualizer, the DSP chain, scrobbling, media keys and the
-tray icon have not been ported yet; the [feature matrix](ROADMAP.md) tracks
-what each build has and what is coming.
+The Now Playing page, the visualizer, the DSP chain, scrobbling, media keys
+and the tray icon are not ported yet — the [feature matrix](ROADMAP.md)
+tracks what each build has.
 
 ### Linux
 
