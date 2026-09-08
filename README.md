@@ -66,10 +66,10 @@ By hand instead: unzip `OxiTide-<ver>-macos-universal.zip` from
 The build is not notarized yet, so the first launch needs **System Settings
 → Privacy & Security → Open Anyway**.
 
-Signing and notarizing needs a paid Apple Developer membership. If the
-warning bothers you, [sponsoring the project](https://github.com/sponsors/yelanxin)
-pays for that membership — once it is in place the build is signed and
-macOS opens it without a word.
+The project does not have an Apple Developer membership yet, which is what
+signing and notarizing require. [Sponsorship](https://github.com/sponsors/yelanxin)
+is very welcome and goes towards it: with the membership in place the macOS
+build will be signed, and it will open without any warning.
 
 For bit-perfect playback turn on **Exclusive access** in Settings → Audio:
 OxiTide takes the device in CoreAudio hog mode and runs it at the track's own
@@ -94,9 +94,9 @@ needing a runtime installed first:
 The builds are not code-signed yet, so the first launch shows **"Windows
 protected your PC"**: choose **More info → Run anyway**.
 
-Code signing needs a paid certificate. If the warning bothers you,
-[sponsoring the project](https://github.com/sponsors/yelanxin) pays for one
-— a signed build no longer trips SmartScreen.
+The project does not have a code-signing certificate yet.
+[Sponsorship](https://github.com/sponsors/yelanxin) is very welcome and goes
+towards one: a signed build no longer trips SmartScreen.
 
 Output goes through **WASAPI in exclusive mode**, on by default: the system
 mixer is out of the path and the device runs at the track's own rate and bit
