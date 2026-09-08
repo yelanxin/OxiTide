@@ -34,15 +34,15 @@ each build has today and what is coming next.
 
 **Linux** — GTK4 / libadwaita
 
-![OxiTide on Linux — Home, custom mixes in the GTK build](screenshots/linux-01-home.png)
+<img src="screenshots/linux-01-home.png" alt="OxiTide on Linux — Home, custom mixes in the GTK build" width="900" height="618">
 
 **macOS** — SwiftUI
 
-![OxiTide on macOS — Home with the spectrum visualizer](screenshots/macos-04-home-visualizer.png)
+<img src="screenshots/macos-04-home-visualizer.png" alt="OxiTide on macOS — Home with the spectrum visualizer" width="900" height="618">
 
 **Windows** — WinUI 3
 
-![OxiTide on Windows — Home, the play bar naming the format reaching the DAC](screenshots/windows-01-home.jpg)
+<img src="screenshots/windows-01-home.jpg" alt="OxiTide on Windows — Home, the play bar naming the format reaching the DAC" width="900" height="618">
 
 ## Install
 
