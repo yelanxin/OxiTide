@@ -42,7 +42,7 @@ each build has today and what is coming next.
 
 **Windows** — WinUI 3
 
-<img src="screenshots/windows-01-home.jpg" alt="OxiTide on Windows — Home, the play bar naming the format reaching the DAC" width="900" height="618">
+<img src="screenshots/windows-01-home.png" alt="OxiTide on Windows — Home, the play bar naming the format reaching the DAC" width="900" height="618">
 
 ## Install
 
