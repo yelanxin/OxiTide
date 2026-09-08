@@ -1,9 +1,10 @@
 ![OxiTide — Hi-Res music streaming, native on Linux](screenshots/banner.png)
 
 ![Made with Rust](https://img.shields.io/badge/Made%20with-Rust-B7410E?logo=rust&logoColor=white)
-![Platform: Linux · macOS](https://img.shields.io/badge/Platform-Linux%20%C2%B7%20macOS-FCC624?logo=linux&logoColor=black)
+![Platform: Linux · macOS · Windows](https://img.shields.io/badge/Platform-Linux%20%C2%B7%20macOS%20%C2%B7%20Windows-FCC624?logo=linux&logoColor=black)
 ![UI: GTK4 · libadwaita](https://img.shields.io/badge/UI-GTK4%20%C2%B7%20libadwaita-4A86CF?logo=gnome&logoColor=white)
 ![UI: SwiftUI](https://img.shields.io/badge/UI-SwiftUI-F05138?logo=swift&logoColor=white)
+![UI: WinUI 3](https://img.shields.io/badge/UI-WinUI%203-0078D4?logo=windows&logoColor=white)
 ![Free to use](https://img.shields.io/badge/Freeware-free%20to%20use-brightgreen)
 [![Latest release](https://img.shields.io/github/v/release/yelanxin/OxiTide?label=release&color=orange)](https://github.com/yelanxin/OxiTide/releases)
 
@@ -13,7 +14,7 @@
 
 <h1 align="center">OxiTide</h1>
 
-**OxiTide** is a high-resolution TIDAL player for Linux and macOS, written in Rust — a GTK4 front-end on Linux, a native SwiftUI front-end on macOS, one shared playback engine.
+**OxiTide** is a high-resolution TIDAL player for Linux, macOS and Windows, written in Rust — a GTK4 front-end on Linux, a native SwiftUI front-end on macOS, a native WinUI 3 one on Windows, all on the same playback engine.
 
 It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) — same bit-perfect playback engine, same USB Rawlink direct-to-DAC output, rebuilt from the ground up with a native Rust UI: faster startup, lower memory, no Python runtime.
 
@@ -22,6 +23,7 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 - **Bit-perfect playback** — untouched PCM straight to your DAC
 - **USB Rawlink** (Linux) — direct USB audio transport, bypassing the OS mixer entirely
 - **CoreAudio Exclusive mode** (macOS) — hog mode plus integer mode, the DAC's native rate and format
+- **WASAPI Exclusive mode** (Windows) — the system mixer out of the path, the device at the track's own rate and bit depth
 - **Hi-Res / FLAC streaming** with gapless playback
 - **Native performance** — a single self-contained binary, instant startup
 - Spectrum visualizer, level meter, synced lyrics, MPRIS integration
@@ -30,8 +32,9 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 
 ## Install
 
-OxiTide is **free to use**. Packages for every supported distribution and the
-macOS app are on the [**Releases**](https://github.com/yelanxin/OxiTide/releases) page.
+OxiTide is **free to use**. Packages for every supported distribution, the
+macOS app and the Windows build are on the
+[**Releases**](https://github.com/yelanxin/OxiTide/releases) page.
 
 ### macOS
 
@@ -86,6 +89,54 @@ build's extras have not been ported yet.
 | Queue reordering / removal, search history | ✓ | planned |
 | Remote control HTTP API, update check | ✓ | later |
 | USB Rawlink direct-to-DAC transport | ✓ | not applicable (CoreAudio hog mode instead) |
+
+### Windows
+
+Windows 10 (1809 or later) and Windows 11, 64-bit. Two downloads on the
+[Releases](https://github.com/yelanxin/OxiTide/releases) page — take either:
+
+| Download | What it does |
+|---|---|
+| `OxiTide-<ver>-windows-x64.exe` | Installs into Program Files, with a Start menu entry and an uninstall entry |
+| `OxiTide-<ver>-windows-x64-portable.zip` | Unzip and run `OxiTide.exe` from anywhere — nothing is installed |
+
+Neither needs a runtime installed first. The builds are not code-signed
+yet, so Windows shows **"Windows protected your PC"** the first time:
+choose **More info → Run anyway**.
+
+Sign in with the account button at the foot of the sidebar (browser
+sign-in). Output goes through **WASAPI in exclusive mode**, which is on by
+default: the system mixer is out of the path and the device runs at the
+track's own sample rate and bit depth, so a 16-bit/44.1 kHz track reaches
+the DAC as 16-bit/44.1 kHz. Where the endpoint has its own volume control
+the slider drives that instead of scaling samples — on a USB DAC that is
+its hardware volume. Pick the endpoint and turn exclusive mode off (for
+shared playback alongside other apps) in **Settings → Output**.
+
+Settings and the session token live in `%APPDATA%\OxiTide`; the engine
+writes `engine.log` beside the executable, and **Settings → Events** shows
+what it negotiated with the device.
+
+#### What the Windows build has, and what is still to come
+
+The first Windows build covers browsing and playback end to end. The
+extras below are on the Linux and macOS builds and not yet ported.
+
+| Feature | Linux | Windows |
+|---|---|---|
+| Discover (Home / New / Top / Hi-Res / Genres / Decades / Moods), search | ✓ | ✓ |
+| Library: tracks, albums, artists, playlists, mixes & radio, uploads, history | ✓ | ✓ |
+| Album and artist pages, favourites, add to playlist, Play Next / Add to Queue | ✓ | ✓ |
+| Queue drawer, play modes | ✓ | ✓ |
+| Lyrics drawer with synced, click-to-seek lyrics | ✓ | ✓ |
+| Bit-perfect exclusive output, hardware volume | ✓ | ✓ |
+| Compact sidebar, remembered window size | ✓ | ✓ |
+| Now Playing page, spectrum visualizer, LUFS / DR meter | ✓ | planned |
+| DSP chain (PEQ, convolution, tube / tape, widener, limiter, resampler) | ✓ | planned |
+| Mini player, streaming-quality picker | ✓ | planned |
+| Last.fm / ListenBrainz scrobbling | ✓ | planned |
+| Media keys, system media controls, tray icon, keyboard shortcuts | ✓ | planned |
+| USB Rawlink direct-to-DAC transport | ✓ | not possible (WinUSB cannot claim the interface from the in-box USB Audio driver) |
 
 ### Linux
 
