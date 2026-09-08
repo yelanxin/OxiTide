@@ -28,6 +28,10 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 - **Native performance** — a single self-contained binary, instant startup
 - Spectrum visualizer, level meter, synced lyrics, MPRIS integration
 
+Browsing and playback are the same on all three platforms; a few extras are
+still Linux-only. The [feature matrix and roadmap](ROADMAP.md) tracks what
+each build has today and what is coming next.
+
 ![OxiTide on Linux — Home, custom mixes in the GTK build](screenshots/linux-01-home.png)
 
 ![OxiTide on macOS — Home with the spectrum visualizer](screenshots/macos-04-home-visualizer.png)
@@ -69,30 +73,9 @@ mixer at whatever rate the device is set to.
 Settings and login live in `~/Library/Application Support/OxiTide`; logs are
 written to `~/Library/Logs/OxiTide/oxitide.log`.
 
-#### What the macOS build has, and what is still to come
-
 The macOS build covers browsing and playback end to end; a few of the Linux
-build's extras have not been ported yet.
-
-| Feature | Linux | macOS |
-|---|---|---|
-| Discover (Home / New / Top / Hi-Res / Genres / Decades / Moods), search | ✓ | ✓ |
-| Library: tracks, albums, artists, playlists, mixes, uploads, history | ✓ | ✓ |
-| Favourites, add to playlist, Play Next / Add to Queue, queue drawer | ✓ | ✓ |
-| Now Playing page with Queue / Album / Suggested (track radio) / Lyrics tabs, spectrum visualizer, play modes | ✓ | ✓ |
-| Lyrics drawer with synced, click-to-seek lyrics | ✓ | ✓ |
-| Mini player | ✓ | ✓ |
-| Bit-perfect exclusive output, hardware volume (with a software-gain fallback), streaming quality | ✓ | ✓ |
-| Last.fm / ListenBrainz scrobbling | ✓ | ✓ |
-| Media keys, system Now Playing panel (Control Center, lock screen) | ✓ (MPRIS) | ✓ |
-| Menu bar / tray icon with playback controls; close hides the window | ✓ | ✓ |
-| Keyboard shortcuts (Space, ← / →, S, W, Q, L, Esc) | ✓ | ✓ |
-| Accent colour, compact sidebar, grid / list layouts | – | ✓ |
-| DSP chain (PEQ, convolution, tube / tape, widener, limiter, resampler) and presets | ✓ | planned |
-| LUFS / DR meter | ✓ | planned |
-| Queue reordering / removal, search history | ✓ | planned |
-| Remote control HTTP API, update check | ✓ | later |
-| USB Rawlink direct-to-DAC transport | ✓ | not applicable (CoreAudio hog mode instead) |
+build's extras have not been ported yet. The [feature matrix](ROADMAP.md)
+tracks what each build has and what is coming.
 
 ### Windows
 
@@ -121,26 +104,10 @@ Settings and the session token live in `%APPDATA%\OxiTide`; the engine
 writes `engine.log` beside the executable, and **Settings → Events** shows
 what it negotiated with the device.
 
-#### What the Windows build has, and what is still to come
-
-The first Windows build covers browsing and playback end to end. The
-extras below are on the Linux and macOS builds and not yet ported.
-
-| Feature | Linux | Windows |
-|---|---|---|
-| Discover (Home / New / Top / Hi-Res / Genres / Decades / Moods), search | ✓ | ✓ |
-| Library: tracks, albums, artists, playlists, mixes & radio, uploads, history | ✓ | ✓ |
-| Album and artist pages, favourites, add to playlist, Play Next / Add to Queue | ✓ | ✓ |
-| Queue drawer, play modes | ✓ | ✓ |
-| Lyrics drawer with synced, click-to-seek lyrics | ✓ | ✓ |
-| Bit-perfect exclusive output, hardware volume | ✓ | ✓ |
-| Compact sidebar, remembered window size | ✓ | ✓ |
-| Now Playing page, spectrum visualizer, LUFS / DR meter | ✓ | planned |
-| DSP chain (PEQ, convolution, tube / tape, widener, limiter, resampler) | ✓ | planned |
-| Mini player, streaming-quality picker | ✓ | planned |
-| Last.fm / ListenBrainz scrobbling | ✓ | planned |
-| Media keys, system media controls, tray icon, keyboard shortcuts | ✓ | planned |
-| USB Rawlink direct-to-DAC transport | ✓ | not possible (WinUSB cannot claim the interface from the in-box USB Audio driver) |
+This first Windows build covers browsing and playback end to end. The Now
+Playing page, the visualizer, the DSP chain, scrobbling, media keys and the
+tray icon have not been ported yet; the [feature matrix](ROADMAP.md) tracks
+what each build has and what is coming.
 
 ### Linux
 
