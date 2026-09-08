@@ -94,6 +94,10 @@ needing a runtime installed first:
 The builds are not code-signed yet, so the first launch shows **"Windows
 protected your PC"**: choose **More info → Run anyway**.
 
+Code signing needs a paid certificate. If the warning bothers you,
+[sponsoring the project](https://github.com/sponsors/yelanxin) pays for one
+— a signed build no longer trips SmartScreen.
+
 Output goes through **WASAPI in exclusive mode**, on by default: the system
 mixer is out of the path and the device runs at the track's own rate and bit
 depth. Pick the endpoint, or turn exclusive off, in **Settings → Output**.
