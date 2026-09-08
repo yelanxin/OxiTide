@@ -52,36 +52,28 @@ macOS app and the Windows build are on the
 
 ### macOS
 
-Quick install:
+macOS 14 or later; Apple silicon and Intel in one bundle.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yelanxin/OxiTide/main/install.sh | bash
 ```
 
-Downloads the newest macOS build, verifies its checksum and puts
-`OxiTide.app` in Applications, cleared to open on first launch. Re-run it to
-update.
+Downloads the newest build, verifies its checksum, puts `OxiTide.app` in
+Applications and clears it to open. Re-run it to update.
 
-Or by hand: download the newest `OxiTide-<ver>-macos-universal.zip` from the
-[Releases](https://github.com/yelanxin/OxiTide/releases) page (Apple silicon
-and Intel in one bundle, macOS 14 or later), unzip it, and move `OxiTide.app`
-to Applications. macOS builds ship on their own schedule, so the newest macOS
-zip may sit on a different release than the newest Linux packages. The build is not notarized yet: on first launch
-macOS will refuse to open it — go to **System Settings → Privacy & Security**
-and choose **Open Anyway**, or right-click the app and choose Open.
+By hand instead: unzip `OxiTide-<ver>-macos-universal.zip` from
+[Releases](https://github.com/yelanxin/OxiTide/releases) into Applications.
+The build is not notarized yet, so the first launch needs **System Settings
+→ Privacy & Security → Open Anyway**.
 
-Sign in with the **Login to TIDAL** button (browser sign-in; a device code is
-offered as a fallback). For bit-perfect playback turn on **Exclusive access**
-in Settings → Audio: OxiTide takes the device in CoreAudio hog mode and runs it
-at the track's own rate and bit depth. Shared mode plays through the system
-mixer at whatever rate the device is set to.
+For bit-perfect playback turn on **Exclusive access** in Settings → Audio:
+OxiTide takes the device in CoreAudio hog mode and runs it at the track's own
+rate and bit depth. Settings and login live in
+`~/Library/Application Support/OxiTide`, logs in
+`~/Library/Logs/OxiTide/oxitide.log`.
 
-Settings and login live in `~/Library/Application Support/OxiTide`; logs are
-written to `~/Library/Logs/OxiTide/oxitide.log`.
-
-The macOS build covers browsing and playback end to end; a few of the Linux
-build's extras have not been ported yet. The [feature matrix](ROADMAP.md)
-tracks what each build has and what is coming.
+A few of the Linux build's extras are not ported yet — the
+[feature matrix](ROADMAP.md) tracks what each build has.
 
 ### Windows
 
