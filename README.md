@@ -66,6 +66,11 @@ By hand instead: unzip `OxiTide-<ver>-macos-universal.zip` from
 The build is not notarized yet, so the first launch needs **System Settings
 → Privacy & Security → Open Anyway**.
 
+Signing and notarizing needs a paid Apple Developer membership. If the
+warning bothers you, [sponsoring the project](https://github.com/sponsors/yelanxin)
+pays for that membership — once it is in place the build is signed and
+macOS opens it without a word.
+
 For bit-perfect playback turn on **Exclusive access** in Settings → Audio:
 OxiTide takes the device in CoreAudio hog mode and runs it at the track's own
 rate and bit depth. Settings and login live in
