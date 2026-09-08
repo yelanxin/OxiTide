@@ -28,6 +28,8 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 - **Native performance** — a single self-contained binary, instant startup
 - Spectrum visualizer, level meter, synced lyrics, MPRIS integration
 
+![OxiTide on Linux — Home, custom mixes in the GTK build](screenshots/linux-01-home.png)
+
 ![OxiTide on macOS — Home with the spectrum visualizer](screenshots/macos-04-home-visualizer.png)
 
 ![OxiTide on Windows — Home, the play bar naming the format reaching the DAC](screenshots/windows-01-home.jpg)
