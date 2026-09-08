@@ -30,6 +30,8 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 
 ![OxiTide on macOS — Home with the spectrum visualizer](screenshots/macos-04-home-visualizer.png)
 
+![OxiTide on Windows — Home, the play bar naming the format reaching the DAC](screenshots/windows-01-home.jpg)
+
 ## Install
 
 OxiTide is **free to use**. Packages for every supported distribution, the
