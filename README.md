@@ -34,7 +34,7 @@ each build has today and what is coming next.
 
 **Linux** — GTK4 / libadwaita
 
-<img src="screenshots/linux-01-home.png" alt="OxiTide on Linux — Home, custom mixes in the GTK build" width="900" height="618">
+<img src="screenshots/linux-02-home.png" alt="OxiTide on Linux — Home, custom mixes in the GTK build" width="900" height="635">
 
 **macOS** — SwiftUI
 
