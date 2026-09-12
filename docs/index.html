@@ -93,7 +93,27 @@
   .btn.primary { background: var(--gold); color: #1a1508; border-color: var(--gold); }
   .btn.primary:hover { background: var(--gold-2); }
   .hero .fine { font-size: 14px; }
-  .shot { margin: 36px auto 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+  .carousel { position: relative; margin: 36px auto 0; }
+  .carousel .track { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,.5); background: #0f1013; aspect-ratio: 1400 / 988; }
+  .carousel .slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .5s ease; }
+  .carousel .slide.is-active { opacity: 1; }
+  .carousel .slide img { width: 100%; height: 100%; object-fit: contain; }
+  .carousel figcaption {
+    position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+    padding: 5px 12px; border-radius: 999px; background: rgba(15,16,19,.8); border: 1px solid var(--line);
+    color: var(--muted); font-size: 13px; white-space: nowrap;
+  }
+  .carousel .arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid var(--line); background: rgba(22,23,27,.85); color: var(--text); font-size: 26px; line-height: 1;
+    cursor: pointer; display: grid; place-items: center; padding: 0 0 3px;
+  }
+  .carousel .arrow:hover { border-color: var(--gold); color: var(--gold-2); }
+  .carousel .prev { left: -20px; } .carousel .next { right: -20px; }
+  .carousel .dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+  .carousel .dots button { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: var(--line); cursor: pointer; }
+  .carousel .dots button[aria-selected="true"] { background: var(--gold); }
+  @media (max-width: 760px) { .carousel .prev { left: 6px; } .carousel .next { right: 6px; } }
 
   section { padding-block: 56px; border-top: 1px solid var(--line); }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
@@ -144,8 +164,19 @@
       <a class="btn" href="https://github.com/yelanxin/OxiTide"><svg class="ic" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
     </div>
     <p class="fine muted">Free to use. Requires a TIDAL subscription.</p>
-    <div class="shot">
-      <img src="assets/linux-home.jpg" alt="OxiTide on Linux: the Home page with custom mixes in the GTK4 build" width="1400" height="961">
+    <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Screenshots">
+      <div class="track">
+        <figure class="slide is-active"><img src="assets/linux-home.jpg" alt="OxiTide on Linux: the Home page with custom mixes in the GTK4 build" width="1400" height="988"><figcaption>Linux · GTK4 / libadwaita</figcaption></figure>
+        <figure class="slide"><img src="assets/macos-home.jpg" alt="OxiTide on macOS: Home with the spectrum visualizer, SwiftUI build" width="1400" height="961" loading="lazy"><figcaption>macOS · SwiftUI</figcaption></figure>
+        <figure class="slide"><img src="assets/windows-home.jpg" alt="OxiTide on Windows: Home, the play bar naming the format reaching the DAC, WinUI 3 build" width="1400" height="961" loading="lazy"><figcaption>Windows · WinUI 3</figcaption></figure>
+      </div>
+      <button class="arrow prev" type="button" aria-label="Previous screenshot">&#8249;</button>
+      <button class="arrow next" type="button" aria-label="Next screenshot">&#8250;</button>
+      <div class="dots" role="tablist">
+        <button type="button" role="tab" aria-label="Linux" aria-selected="true"></button>
+        <button type="button" role="tab" aria-label="macOS" aria-selected="false"></button>
+        <button type="button" role="tab" aria-label="Windows" aria-selected="false"></button>
+      </div>
     </div>
   </div>
 
@@ -195,16 +226,6 @@
     </div>
   </section>
 
-  <section id="screens">
-    <div class="wrap">
-      <h2>Native on every platform</h2>
-      <div class="shots">
-        <figure><img src="assets/macos-home.jpg" alt="OxiTide on macOS: Home with the spectrum visualizer, SwiftUI build" width="1400" height="961" loading="lazy"><figcaption>macOS, SwiftUI</figcaption></figure>
-        <figure><img src="assets/windows-home.jpg" alt="OxiTide on Windows: Home, the play bar naming the format reaching the DAC, WinUI 3 build" width="1400" height="961" loading="lazy"><figcaption>Windows, WinUI 3</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
   <section id="faq">
     <div class="wrap">
       <h2>FAQ</h2>
@@ -247,6 +268,27 @@
     <p>OxiTide is an independent project and is not affiliated with or endorsed by TIDAL.</p>
   </div>
 </footer>
+
+<script>
+(function () {
+  var root = document.getElementById('carousel');
+  if (!root) return;
+  var slides = root.querySelectorAll('.slide'), dots = root.querySelectorAll('.dots button');
+  var i = 0, timer;
+  function show(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+    dots.forEach(function (d, k) { d.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+  }
+  function restart() { clearInterval(timer); timer = setInterval(function () { show(i + 1); }, 6000); }
+  root.querySelector('.prev').addEventListener('click', function () { show(i - 1); restart(); });
+  root.querySelector('.next').addEventListener('click', function () { show(i + 1); restart(); });
+  dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); restart(); }); });
+  root.addEventListener('mouseenter', function () { clearInterval(timer); });
+  root.addEventListener('mouseleave', restart);
+  restart();
+})();
+</script>
 
 </body>
 </html>
