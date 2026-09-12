@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OxiTide — Hi-Res TIDAL player for Linux, macOS and Windows</title>
+<meta name="description" content="OxiTide is a native, high-resolution TIDAL player for Linux, macOS and Windows. Bit-perfect FLAC playback straight to your DAC, USB Rawlink, gapless, lyrics and a spectrum visualizer. Free to use, written in Rust.">
+<link rel="canonical" href="https://oxitide.com/">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta name="theme-color" content="#16171b">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OxiTide">
+<meta property="og:title" content="OxiTide — Hi-Res TIDAL player for Linux, macOS and Windows">
+<meta property="og:description" content="Bit-perfect TIDAL playback, native on your desktop. FLAC and Hi-Res straight to your DAC. Free to use.">
+<meta property="og:url" content="https://oxitide.com/">
+<meta property="og:image" content="https://oxitide.com/assets/og-banner.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="393">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OxiTide — Hi-Res TIDAL player for Linux, macOS and Windows">
+<meta name="twitter:description" content="Bit-perfect TIDAL playback, native on your desktop. Free to use.">
+<meta name="twitter:image" content="https://oxitide.com/assets/og-banner.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "OxiTide",
+  "applicationCategory": "MultimediaApplication",
+  "applicationSubCategory": "Music player",
+  "operatingSystem": "Linux, macOS, Windows",
+  "description": "High-resolution TIDAL player for Linux, macOS and Windows. Bit-perfect FLAC playback straight to your DAC, written in Rust.",
+  "url": "https://oxitide.com/",
+  "downloadUrl": "https://github.com/yelanxin/OxiTide/releases/latest",
+  "image": "https://oxitide.com/assets/og-banner.jpg",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Eason", "url": "https://github.com/yelanxin" }
+}
+</script>
+
+<style>
+  :root {
+    --bg: #16171b; --bg-2: #1e2025; --panel: #23262c; --line: #2f333b;
+    --text: #e8e9ec; --muted: #a2a7b1; --gold: #d8b25a; --gold-2: #f0cf7a;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  img { max-width: 100%; height: auto; display: block; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+  pre {
+    background: #0f1013; border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px; font-size: 14px; margin: 10px 0 0; white-space: pre-wrap; word-break: break-all;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+  h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; }
+  h2 { font-size: 28px; margin-top: 0; }
+  h3 { font-size: 18px; }
+  p { margin: 0 0 14px; }
+  .muted { color: var(--muted); }
+
+  header.top {
+    position: sticky; top: 0; z-index: 10; background: rgba(22,23,27,.92);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  header.top .wrap { display: flex; align-items: center; gap: 14px; height: 60px; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; font-size: 18px; }
+  .brand img { width: 30px; height: 30px; border-radius: 8px; }
+  nav { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+  nav a { color: var(--muted); font-size: 15px; }
+  nav a:hover { color: var(--text); text-decoration: none; }
+
+  .hero { padding-block: 64px 32px; text-align: center; }
+  .hero img.logo { width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 28px; box-shadow: 0 10px 40px rgba(216,178,90,.18); }
+  .hero h1 { font-size: clamp(30px, 5vw, 46px); }
+  .hero .tag { font-size: 20px; color: var(--muted); max-width: 720px; margin: 0 auto 26px; }
+  .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px;
+    font-weight: 600; border: 1px solid var(--line); background: var(--panel); color: var(--text);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--gold); }
+  .btn.primary { background: var(--gold); color: #1a1508; border-color: var(--gold); }
+  .btn.primary:hover { background: var(--gold-2); }
+  .hero .fine { font-size: 14px; }
+  .shot { margin: 36px auto 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+
+  section { padding-block: 56px; border-top: 1px solid var(--line); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .card { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .card h3 { color: var(--gold-2); }
+  .card p { margin: 0; color: var(--muted); }
+  .platforms { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .platforms .card p { margin-bottom: 8px; }
+  .platforms .card .req { font-size: 14px; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .shots figure { margin: 0; }
+  .shots img { border-radius: 10px; border: 1px solid var(--line); }
+  .shots figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
+  details { border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); padding: 12px 16px; margin-bottom: 10px; }
+  details summary { cursor: pointer; font-weight: 600; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+  footer { padding-block: 32px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  footer .links { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+  @media (max-width: 640px) {
+    header.top .wrap { height: auto; padding-block: 10px; flex-wrap: wrap; }
+    nav { margin-left: 0; gap: 12px; }
+    .hero { padding-top: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.png" alt="" width="30" height="30">OxiTide</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/yelanxin/OxiTide">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero wrap">
+    <img class="logo" src="assets/logo.png" alt="OxiTide logo" width="120" height="120">
+    <h1>Hi-Res TIDAL player for Linux, macOS and Windows</h1>
+    <p class="tag">Bit-perfect TIDAL playback, native on your desktop. FLAC and Hi-Res straight to your DAC, gapless, with lyrics and a spectrum visualizer. Written in Rust.</p>
+    <div class="buttons">
+      <a class="btn primary" href="https://github.com/yelanxin/OxiTide/releases/latest">Download</a>
+      <a class="btn" href="#install">Install on Linux</a>
+      <a class="btn" href="https://github.com/yelanxin/OxiTide">Source hub on GitHub</a>
+    </div>
+    <p class="fine muted">Free to use. Requires a TIDAL subscription.</p>
+    <div class="shot">
+      <img src="assets/linux-home.jpg" alt="OxiTide on Linux: the Home page with custom mixes in the GTK4 build" width="1400" height="961">
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>Features: bit-perfect TIDAL playback</h2>
+      <div class="grid">
+        <div class="card"><h3>Bit-perfect output</h3><p>Untouched PCM from TIDAL to your DAC. Exclusive ALSA on Linux, CoreAudio hog mode on macOS, WASAPI exclusive on Windows.</p></div>
+        <div class="card"><h3>USB Rawlink</h3><p>Direct USB audio transport on Linux that bypasses the OS mixer entirely and drives the DAC at the track's own rate and bit depth.</p></div>
+        <div class="card"><h3>Hi-Res and FLAC</h3><p>Streams TIDAL's Hi-Res FLAC catalogue with gapless playback and a play bar that shows the format actually reaching the DAC.</p></div>
+        <div class="card"><h3>Native and fast</h3><p>One self-contained Rust binary with a native front-end per platform: GTK4 and libadwaita, SwiftUI, WinUI 3. Instant startup, low memory, no Electron.</p></div>
+        <div class="card"><h3>Your library</h3><p>Albums, artists, tracks, mixes, playlists and folders, with search, history and TIDAL's editorial pages.</p></div>
+        <div class="card"><h3>Extras</h3><p>Spectrum visualizer, level meter, synced lyrics, a DSP chain, MPRIS and media keys, tray icon and scrobbling on Linux.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap">
+      <h2>Install</h2>
+      <p class="muted">Every build is on the <a href="https://github.com/yelanxin/OxiTide/releases">Releases</a> page. The one-line installer picks the right package for your system on Linux and macOS.</p>
+      <div class="platforms">
+        <div class="card">
+          <h3>Linux</h3>
+          <p class="req">Arch, Debian 13+, Ubuntu 24.04+, Fedora 43+, openSUSE Tumbleweed, x86_64.</p>
+          <p>Quick install</p>
+          <pre>curl -fsSL https://raw.githubusercontent.com/yelanxin/OxiTide/main/install.sh | bash</pre>
+          <p style="margin-top:14px">Snap</p>
+          <pre>sudo snap install oxitide</pre>
+          <p style="margin-top:14px">Flatpak</p>
+          <pre>flatpak install --user https://flatpak.oxitide.com/oxitide.flatpakref</pre>
+          <p style="margin-top:14px">Arch (AUR)</p>
+          <pre>yay -S oxitide-bin</pre>
+        </div>
+        <div class="card">
+          <h3>macOS</h3>
+          <p class="req">macOS 14 or later. Apple silicon and Intel in one bundle.</p>
+          <pre>curl -fsSL https://raw.githubusercontent.com/yelanxin/OxiTide/main/install.sh | bash</pre>
+          <p style="margin-top:14px" class="req">Or unzip <code>OxiTide-&lt;ver&gt;-macos-universal.zip</code> from Releases into Applications. The build is not notarized yet: on first launch choose System Settings → Privacy &amp; Security → Open Anyway.</p>
+        </div>
+        <div class="card">
+          <h3>Windows</h3>
+          <p class="req">Windows 10 (1809+) or Windows 11, 64-bit.</p>
+          <p class="req">Download <code>OxiTide-&lt;ver&gt;-windows-x64.exe</code> (installer) or the portable zip from <a href="https://github.com/yelanxin/OxiTide/releases/latest">Releases</a>. Nothing else to install. The build is not code-signed yet: choose More info → Run anyway when SmartScreen asks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screens">
+    <div class="wrap">
+      <h2>Native on every platform</h2>
+      <div class="shots">
+        <figure><img src="assets/macos-home.jpg" alt="OxiTide on macOS: Home with the spectrum visualizer, SwiftUI build" width="1400" height="961" loading="lazy"><figcaption>macOS, SwiftUI</figcaption></figure>
+        <figure><img src="assets/windows-home.jpg" alt="OxiTide on Windows: Home, the play bar naming the format reaching the DAC, WinUI 3 build" width="1400" height="961" loading="lazy"><figcaption>Windows, WinUI 3</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>FAQ</h2>
+      <details open>
+        <summary>Is there a native TIDAL app for Linux?</summary>
+        <p>TIDAL does not publish a Linux client. OxiTide is a native GTK4 application for Linux that streams TIDAL, packaged as deb, rpm, Arch package, Snap and Flatpak.</p>
+      </details>
+      <details>
+        <summary>How is OxiTide different from tidal-hifi or the web player?</summary>
+        <p>tidal-hifi wraps the TIDAL web player in Electron, so audio goes through the browser and the system mixer. OxiTide has its own Rust playback engine: it decodes FLAC itself and sends the samples to the DAC bit-perfect, with exclusive device access or USB Rawlink, so a 24-bit / 192 kHz track reaches the DAC as exactly that.</p>
+      </details>
+      <details>
+        <summary>Does it support Hi-Res, FLAC and MQA?</summary>
+        <p>OxiTide plays TIDAL's Hi-Res FLAC (up to 24-bit / 192 kHz) and lossless FLAC tiers, gapless, at the track's own rate. MQA is not decoded; TIDAL has moved its Hi-Res catalogue to FLAC.</p>
+      </details>
+      <details>
+        <summary>Is OxiTide free? Is it open source?</summary>
+        <p>OxiTide is proprietary freeware: free to download and use, with a TIDAL subscription. The source is not public. The earlier Python/GTK edition, <a href="https://github.com/yelanxin/hiresTI">hiresTI</a>, remains open source under GPL-3.0.</p>
+      </details>
+      <details>
+        <summary>Which DACs work with USB Rawlink?</summary>
+        <p>Any USB Audio Class 2 DAC. On Linux the package installs a udev rule and a polkit action so the app can claim the device; the first use asks for authorization. Inside Flatpak and Snap the app shows the one-line command to install that rule.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://github.com/yelanxin/OxiTide/releases">Releases</a>
+      <a href="https://github.com/yelanxin/OxiTide/issues">Issues and feedback</a>
+      <a href="https://github.com/yelanxin/OxiTide/blob/main/ROADMAP.md">Feature matrix and roadmap</a>
+      <a href="https://snapcraft.io/oxitide">Snap Store</a>
+      <a href="https://flatpak.oxitide.com/">Flatpak repository</a>
+      <a href="https://aur.archlinux.org/packages/oxitide-bin">AUR</a>
+      <a href="https://github.com/sponsors/yelanxin">Sponsor</a>
+    </div>
+    <p>OxiTide is proprietary freeware, free to download and use. Third-party open-source components are acknowledged in the THIRD-PARTY-NOTICES file shipped with each release.</p>
+    <p>OxiTide is an independent project and is not affiliated with or endorsed by TIDAL.</p>
+  </div>
+</footer>
+
+</body>
+</html>
