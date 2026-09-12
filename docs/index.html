@@ -74,7 +74,7 @@
   }
   header.top .wrap { display: flex; align-items: center; gap: 14px; height: 60px; }
   .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; font-size: 18px; }
-  .brand img { width: 30px; height: 30px; border-radius: 8px; }
+  .brand img { width: 30px; height: 30px; }
   nav { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
   nav a { color: var(--muted); font-size: 15px; }
   nav a:hover { color: var(--text); text-decoration: none; }
@@ -83,7 +83,7 @@
   nav a.sponsor:hover { color: #f19ab6; }
 
   .hero { padding-block: 64px 32px; text-align: center; }
-  .hero img.logo { width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 28px; box-shadow: 0 10px 40px rgba(216,178,90,.18); }
+  .hero img.logo { width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; box-shadow: 0 10px 40px rgba(216,178,90,.22); }
   .hero h1 { font-size: clamp(30px, 5vw, 46px); }
   .hero .tag { font-size: 20px; color: var(--muted); max-width: 720px; margin: 0 auto 26px; }
   .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
@@ -146,7 +146,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#"><img src="assets/logo.png" alt="" width="30" height="30">OxiTide</a>
+    <a class="brand" href="#"><img src="assets/logo-disc.png" alt="" width="30" height="30">OxiTide</a>
     <nav>
       <a href="#features">Features</a>
       <a href="#install">Install</a>
@@ -159,7 +159,7 @@
 
 <main>
   <div class="hero wrap">
-    <img class="logo" src="assets/logo.png" alt="OxiTide logo" width="120" height="120">
+    <img class="logo" src="assets/logo-disc.png" alt="OxiTide logo" width="120" height="120">
     <h1>Hi-Res TIDAL player for Linux, macOS and Windows</h1>
     <p class="tag">Bit-perfect TIDAL playback, native on your desktop. FLAC and Hi-Res straight to your DAC, gapless, with lyrics and a spectrum visualizer. Written in Rust.</p>
     <div class="buttons">
