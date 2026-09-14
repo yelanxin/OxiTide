@@ -51,9 +51,9 @@ source's own rate and format — but the OS driver still owns the transport.
 | Spectrum visualizer | ✓ | ✓ | ○ |
 | LUFS / DR meter | ✓ | ○ | ○ |
 | Lyrics drawer, synced and click-to-seek | ✓ | ✓ | ✓ |
-| Mini player | ✓ | ✓ | ○ |
+| Mini player | ✓ | ✓ | ✓ |
 | Remembered window size and position | ✓ | ✓ | ✓ |
-| Compact sidebar | — | ✓ | ✓ |
+| Compact sidebar | ✓ | ✓ | ✓ |
 | Accent colour | — | ✓ | — |
 | Grid / list layout and cover size for Tracks | — | ✓ | — |
 
@@ -66,14 +66,14 @@ source's own rate and format — but the OS driver still owns the transport.
 | Tray / menu bar icon with transport controls; close hides the window | ✓ | ✓ | ○ |
 | Keyboard shortcuts (Space, ← / →, S, W, Q, L, Esc) | ✓ | ✓ | ○ |
 | Remote control HTTP JSON-RPC API | ✓ | ○ | ○ |
-| In-app update check | ✓ | ○ | ○ |
+| In-app update check | ✓ | ○ | ✓ |
 
 ## What is next
 
 **Windows**, roughly in this order — the Now Playing page with the spectrum
 visualizer and DR meter, media keys and the system media controls, the tray
 icon, keyboard shortcuts, scrobbling, the streaming-quality picker, queue
-editing, the mini player, then the DSP chain.
+editing, then the DSP chain.
 
 **macOS** — the DSP chain and its presets, the DR meter, queue editing and
 search history; the remote control API and the update check after those.

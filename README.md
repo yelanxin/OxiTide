@@ -98,9 +98,10 @@ The project does not have a code-signing certificate yet.
 [Sponsorship](https://github.com/sponsors/yelanxin) is very welcome and goes
 towards one: a signed build no longer trips SmartScreen.
 
-Output goes through **WASAPI in exclusive mode**, on by default: the system
-mixer is out of the path and the device runs at the track's own rate and bit
-depth. Pick the endpoint, or turn exclusive off, in **Settings → Output**.
+Output goes through **WASAPI**, shared with other apps on a first run. For
+bit-perfect playback turn on **exclusive mode** in **Settings → Output**: the
+system mixer is out of the path and the device runs at the track's own rate
+and bit depth.
 Settings and the session token live in `%APPDATA%\OxiTide`, the engine's
 `engine.log` beside the executable.
 
