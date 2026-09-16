@@ -35,7 +35,9 @@ each build has today and what is coming next.
 **Linux** — GTK4 / libadwaita. The window is decorated by your desktop, so the
 title bar matches the rest of KDE or GNOME.
 
-<img src="screenshots/linux-02-home.png" alt="OxiTide on Linux — Home, custom mixes in the GTK build" width="900" height="595">
+<img src="screenshots/linux-02-home.png" alt="OxiTide on Linux — Home under GNOME, custom mixes in the GTK build" width="900" height="595">
+
+<img src="screenshots/linux-03-home-kde.png" alt="OxiTide on Linux — Home under KDE Plasma, Breeze title bar" width="900" height="625">
 
 **macOS** — SwiftUI
 
