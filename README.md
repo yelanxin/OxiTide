@@ -45,7 +45,7 @@ title bar matches the rest of KDE or GNOME.
 
 **macOS** — SwiftUI
 
-<img src="screenshots/macos-04-home-visualizer.png" alt="OxiTide on macOS — Home with the spectrum visualizer" width="680" height="416">
+<img src="screenshots/macos-04-home-visualizer.png" alt="OxiTide on macOS — Home with the spectrum visualizer" width="900" height="582">
 
 **Windows** — WinUI 3
 
