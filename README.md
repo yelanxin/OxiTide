@@ -32,9 +32,10 @@ Browsing and playback are the same on all three platforms; a few extras are
 still Linux-only. The [feature matrix and roadmap](ROADMAP.md) tracks what
 each build has today and what is coming next.
 
-**Linux** — GTK4 / libadwaita
+**Linux** — GTK4 / libadwaita. The window is decorated by your desktop, so the
+title bar matches the rest of KDE or GNOME.
 
-<img src="screenshots/linux-02-home.png" alt="OxiTide on Linux — Home, custom mixes in the GTK build" width="900" height="635">
+<img src="screenshots/linux-02-home.png" alt="OxiTide on Linux — Home, custom mixes in the GTK build" width="900" height="595">
 
 **macOS** — SwiftUI
 
