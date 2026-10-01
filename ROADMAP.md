@@ -24,6 +24,17 @@ possible there.
 | Album and artist pages | ✓ | ✓ | ✓ |
 | Favourites, add to playlist | ✓ | ✓ | ✓ |
 
+## Local music
+
+| | Linux | macOS | Windows |
+|---|:--:|:--:|:--:|
+| Music folders: FLAC, APE, WAV, AIFF, ALAC, AAC, MP3, Ogg Vorbis | ✓ | — | — |
+| CUE sheets, external and embedded | ✓ | — | — |
+| Library, search, hearts, playlists and History for local music | ✓ | — | — |
+| Browse Files: tag editing (batch, CUE), delete to Trash | ✓ | — | — |
+| Cover and artist-picture download, online cover picker | ✓ | — | — |
+| Network shares (SMB, FTP) | ○ | — | — |
+
 ## Playback
 
 | | Linux | macOS | Windows |

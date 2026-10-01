@@ -14,7 +14,7 @@
 
 <h1 align="center">OxiTide</h1>
 
-**OxiTide** is a high-resolution TIDAL player for Linux, macOS and Windows, written in Rust — a GTK4 front-end on Linux, a native SwiftUI front-end on macOS, a native WinUI 3 one on Windows, all on the same playback engine.
+**OxiTide** is a high-resolution TIDAL player for Linux, macOS and Windows, written in Rust — a GTK4 front-end on Linux, a native SwiftUI front-end on macOS, a native WinUI 3 one on Windows, all on the same playback engine. On Linux it also plays **your own music folders** — FLAC, APE, WAV, MP3 and more, CUE sheets included — through that same bit-perfect engine.
 
 It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) — same bit-perfect playback engine, same USB Rawlink direct-to-DAC output, rebuilt from the ground up with a native Rust UI: faster startup, lower memory, no Python runtime.
 
@@ -25,8 +25,31 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 - **CoreAudio Exclusive mode** (macOS) — hog mode plus integer mode, the DAC's native rate and format
 - **WASAPI Exclusive mode** (Windows) — the system mixer out of the path, the device at the track's own rate and bit depth
 - **Hi-Res / FLAC streaming** with gapless playback
+- **Local music** (Linux) — your own folders next to TIDAL, see [below](#local-music-linux)
 - **Native performance** — a single self-contained binary, instant startup
 - Spectrum visualizer, level meter, synced lyrics, MPRIS integration
+
+## Local music (Linux)
+
+Pick **Local Music** from the account button at the bottom of the sidebar and
+add your music folders. No TIDAL account is needed for it, and switching back
+keeps you signed in to TIDAL.
+
+- **Formats:** FLAC, APE (Monkey's Audio), WAV, AIFF, ALAC, AAC, MP3 and Ogg
+  Vorbis, played bit-perfect like TIDAL streams
+- **CUE sheets**, external (UTF-8, UTF-16, GBK) or embedded in FLAC / APE —
+  each track plays, seeks and advances like a separate file
+- **The same library as TIDAL:** Albums, Tracks, Artists, Playlists, search,
+  hearts and its own History; multi-disc albums are one album
+- **Browse Files:** your folders as they are on disk — edit tags one file or
+  many at once (CUE sheets too), move files to the Trash
+- **Artwork:** folder and embedded covers, optional automatic download of
+  missing album covers and artist pictures, or pick one yourself — from a file
+  or from every match found online
+- Lyrics from `.lrc` files or the tags; the library rescans at startup
+
+Snap users with music on external drives run
+`sudo snap connect oxitide:removable-media` once.
 
 Browsing and playback are the same on all three platforms; a few extras are
 still Linux-only. The [feature matrix and roadmap](ROADMAP.md) tracks what
@@ -172,7 +195,7 @@ it itself).
 | <img src="https://cdn.simpleicons.org/fedora" width="16" alt=""/> Fedora 43 / 44 | `sudo dnf install ./oxitide-<ver>-1.fedora.x86_64_fedora44.rpm` (or `_fedora43.rpm`) |
 | <img src="https://cdn.simpleicons.org/opensuse" width="16" alt=""/> openSUSE Tumbleweed | `sudo zypper install ./oxitide-<ver>-1.opensuse.x86_64_opensuse_tumbleweed.rpm` |
 
-Requirements: a TIDAL subscription and GTK 4.14+ (Debian 12 is not supported).
+Requirements: GTK 4.14+ and, for streaming, a TIDAL subscription (local music needs none) (Debian 12 is not supported).
 For bit-perfect USB Rawlink output the package installs a udev rule and a polkit
 action so the app can claim your DAC — the first use asks for authorization.
 
