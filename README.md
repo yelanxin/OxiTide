@@ -14,7 +14,7 @@
 
 <h1 align="center">OxiTide</h1>
 
-**OxiTide** is a high-resolution TIDAL player for Linux, macOS and Windows, written in Rust — a GTK4 front-end on Linux, a native SwiftUI front-end on macOS, a native WinUI 3 one on Windows, all on the same playback engine. On Linux it also plays **your own music folders** — FLAC, APE, WAV, MP3 and more, CUE sheets included — through that same bit-perfect engine.
+**OxiTide** is a high-resolution TIDAL player for Linux, macOS and Windows, written in Rust — a GTK4 front-end on Linux, a native SwiftUI front-end on macOS, a native WinUI 3 one on Windows, all on the same playback engine. On Linux and Windows it also plays **your own music folders** — FLAC, APE, WAV, MP3 and more, CUE sheets included — through that same bit-perfect engine.
 
 It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) — same bit-perfect playback engine, same USB Rawlink direct-to-DAC output, rebuilt from the ground up with a native Rust UI: faster startup, lower memory, no Python runtime.
 
@@ -25,24 +25,27 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 - **CoreAudio Exclusive mode** (macOS) — hog mode plus integer mode, the DAC's native rate and format
 - **WASAPI Exclusive mode** (Windows) — the system mixer out of the path, the device at the track's own rate and bit depth
 - **Hi-Res / FLAC streaming** with gapless playback
-- **Local music** (Linux) — your own folders next to TIDAL, see [below](#local-music-linux)
+- **Local music** (Linux, Windows) — your own folders next to TIDAL, see [below](#local-music-linux-windows)
 - **Native performance** — a single self-contained binary, instant startup
 - Spectrum visualizer, level meter, synced lyrics, MPRIS integration
 
-## Local music (Linux)
+## Local music (Linux, Windows)
 
 Pick **Local Music** from the account button at the bottom of the sidebar and
 add your music folders. No TIDAL account is needed for it, and switching back
-keeps you signed in to TIDAL.
+keeps you signed in to TIDAL. On Windows a first launch opens straight into
+Local Music; TIDAL asks you to sign in only when you switch to it.
 
 - **Formats:** FLAC, APE (Monkey's Audio), WAV, AIFF, ALAC, AAC, MP3 and Ogg
   Vorbis, played bit-perfect like TIDAL streams
 - **CUE sheets**, external (UTF-8, UTF-16, GBK) or embedded in FLAC / APE —
   each track plays, seeks and advances like a separate file
 - **The same library as TIDAL:** Albums, Tracks, Artists, Playlists, search,
-  hearts and its own History; multi-disc albums are one album
+  Favorites and its own History; multi-disc albums are one album, playlists
+  can sit in folders and take a cover of your own
 - **Browse Files:** your folders as they are on disk — edit tags one file or
-  many at once (CUE sheets too), move files to the Trash
+  many at once (CUE sheets too), move files to the Trash (the Recycle Bin on
+  Windows)
 - **Artwork:** folder and embedded covers, optional automatic download of
   missing album covers and artist pictures, or pick one yourself — from a file
   or from every match found online
@@ -132,8 +135,9 @@ Output goes through **WASAPI**, shared with other apps on a first run. For
 bit-perfect playback turn on **exclusive mode** in **Settings → Output**: the
 system mixer is out of the path and the device runs at the track's own rate
 and bit depth.
-Settings and the session token live in `%APPDATA%\OxiTide`, the engine's
-`engine.log` beside the executable.
+Settings, the session token and the local music library live in
+`%APPDATA%\OxiTide`; the cover cache and the engine's `oxitide.log` in
+`%LOCALAPPDATA%\OxiTide`.
 
 The Now Playing page, the visualizer, the DSP chain, scrobbling, media keys
 and the tray icon are not ported yet — the [feature matrix](ROADMAP.md)

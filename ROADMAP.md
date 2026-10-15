@@ -28,11 +28,11 @@ possible there.
 
 | | Linux | macOS | Windows |
 |---|:--:|:--:|:--:|
-| Music folders: FLAC, APE, WAV, AIFF, ALAC, AAC, MP3, Ogg Vorbis | ✓ | — | — |
-| CUE sheets, external and embedded | ✓ | — | — |
-| Library, search, hearts, playlists and History for local music | ✓ | — | — |
-| Browse Files: tag editing (batch, CUE), delete to Trash | ✓ | — | — |
-| Cover and artist-picture download, online cover picker | ✓ | — | — |
+| Music folders: FLAC, APE, WAV, AIFF, ALAC, AAC, MP3, Ogg Vorbis | ✓ | — | ✓ |
+| CUE sheets, external and embedded | ✓ | — | ✓ |
+| Library, search, Favorites, playlist folders and History for local music | ✓ | — | ✓ |
+| Browse Files: tag editing (batch, CUE), delete to Trash / Recycle Bin | ✓ | — | ✓ |
+| Cover and artist-picture download, online cover picker | ✓ | — | ✓ |
 | Network shares (SMB, FTP) | ○ | — | — |
 
 ## Playback
