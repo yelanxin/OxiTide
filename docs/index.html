@@ -225,6 +225,11 @@
           <h3>Windows</h3>
           <p class="req">Windows 10 (1809+) or Windows 11, 64-bit.</p>
           <p class="req">Download <code>OxiTide-&lt;ver&gt;-windows-x64.exe</code> (installer) or the portable zip from <a href="https://github.com/yelanxin/OxiTide/releases/latest">Releases</a>. Nothing else to install. The build is not code-signed yet: choose More info → Run anyway when SmartScreen asks.</p>
+          <p style="margin-top:14px">TIDAL plugin</p>
+          <p class="req">The Microsoft Store version plays your local music. To add TIDAL, download <a href="https://github.com/yelanxin/oxitide-tidal-plugin/releases/latest/download/tidal.oxplugin"><code>tidal.oxplugin</code></a>, put it in <code>%LOCALAPPDATA%\OxiTide\plugins</code> and restart OxiTide. The download above already includes TIDAL. <a href="https://github.com/yelanxin/oxitide-tidal-plugin#install">Step-by-step guide</a></p>
+          <pre>$dir = "$env:LOCALAPPDATA\OxiTide\plugins"
+New-Item -ItemType Directory -Force $dir | Out-Null
+Invoke-WebRequest https://github.com/yelanxin/oxitide-tidal-plugin/releases/latest/download/tidal.oxplugin -OutFile "$dir\tidal.oxplugin"</pre>
         </div>
       </div>
     </div>
@@ -248,6 +253,10 @@
       <details>
         <summary>Can it play my own music files?</summary>
         <p>Yes, on Linux and Windows. Choose Local Music from the account button at the bottom of the sidebar and add your folders: FLAC, APE, WAV, AIFF, ALAC, AAC, MP3 and Ogg Vorbis, with external or embedded CUE sheets. You get albums, artists, playlists, favorites and history as for TIDAL, a file browser with tag editing, and automatic cover download. No TIDAL account is needed for it. The macOS build does not have it today.</p>
+      </details>
+      <details>
+        <summary>I installed OxiTide from the Microsoft Store. Where is TIDAL?</summary>
+        <p>The Microsoft Store version is a local music player out of the box; TIDAL comes as a separate plugin. Download <a href="https://github.com/yelanxin/oxitide-tidal-plugin/releases/latest/download/tidal.oxplugin">tidal.oxplugin</a>, put it in <code>%LOCALAPPDATA%\OxiTide\plugins</code>, restart OxiTide, then pick TIDAL from the account button at the bottom of the sidebar and sign in. The <a href="https://github.com/yelanxin/oxitide-tidal-plugin#install">plugin page</a> has the details. The installer and portable zip from Releases include TIDAL already.</p>
       </details>
       <details>
         <summary>Is OxiTide free? Is it open source?</summary>
