@@ -81,7 +81,9 @@ title bar matches the rest of KDE or GNOME.
 
 OxiTide is **free to use**. Packages for every supported distribution, the
 macOS app and the Windows build are on the
-[**Releases**](https://github.com/yelanxin/OxiTide/releases) page.
+[**Releases**](https://github.com/yelanxin/OxiTide/releases) page; on
+Windows it is also in the
+[**Microsoft Store**](https://apps.microsoft.com/detail/9NDB0J7K3TCB?referrer=appbadge&mode=direct).
 
 ### macOS
 
@@ -115,17 +117,32 @@ A few of the Linux build's extras are not ported yet — the
 
 ### Windows
 
-Windows 10 (1809 or later) or Windows 11, 64-bit. Two downloads on the
-[Releases](https://github.com/yelanxin/OxiTide/releases) page, neither
-needing a runtime installed first:
+Windows 10 (1809 or later) or Windows 11, 64-bit.
+
+#### Microsoft Store
+
+<a href="https://apps.microsoft.com/detail/9NDB0J7K3TCB?referrer=appbadge&mode=direct"><img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200" alt="Get it from Microsoft"/></a>
+
+Signed by Microsoft, so it opens without a SmartScreen warning, and the Store
+keeps it up to date. The Store build plays local music; TIDAL streaming is a
+separate plugin — see
+[oxitide-tidal-plugin](https://github.com/yelanxin/oxitide-tidal-plugin) to
+add it.
+
+#### Installer or portable zip
+
+Two downloads on the
+[Releases](https://github.com/yelanxin/OxiTide/releases) page, both with
+TIDAL included and neither needing a runtime installed first:
 
 | Download | What it does |
 |---|---|
 | `OxiTide-<ver>-windows-x64.exe` | Installs into Program Files, with a Start menu entry and an uninstall entry |
 | `OxiTide-<ver>-windows-x64-portable.zip` | Unzip and run `OxiTide.exe` from anywhere — nothing is installed |
 
-The builds are not code-signed yet, so the first launch shows **"Windows
-protected your PC"**: choose **More info → Run anyway**.
+These builds are not code-signed yet, so the first launch shows **"Windows
+protected your PC"**: choose **More info → Run anyway** (or install from the
+Microsoft Store above).
 
 The project does not have a code-signing certificate yet.
 [Sponsorship](https://github.com/sponsors/yelanxin) is very welcome and goes
