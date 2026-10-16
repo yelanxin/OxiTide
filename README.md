@@ -1,4 +1,4 @@
-![OxiTide — Hi-Res music streaming, native on Linux](screenshots/banner.png)
+![OxiTide — bit-perfect Hi-Res music player](screenshots/banner.png)
 
 ![Made with Rust](https://img.shields.io/badge/Made%20with-Rust-B7410E?logo=rust&logoColor=white)
 ![Platform: Linux · macOS · Windows](https://img.shields.io/badge/Platform-Linux%20%C2%B7%20macOS%20%C2%B7%20Windows-FCC624?logo=linux&logoColor=black)
@@ -14,35 +14,34 @@
 
 <h1 align="center">OxiTide</h1>
 
-**OxiTide** is a high-resolution TIDAL player for Linux, macOS and Windows, written in Rust — a GTK4 front-end on Linux, a native SwiftUI front-end on macOS, a native WinUI 3 one on Windows, all on the same playback engine. On Linux and Windows it also plays **your own music folders** — FLAC, APE, WAV, MP3 and more, CUE sheets included — through that same bit-perfect engine.
+**OxiTide** is a bit-perfect, high-resolution music player for Linux, macOS and Windows, written in Rust — a GTK4 front-end on Linux, a native SwiftUI front-end on macOS, a native WinUI 3 one on Windows, all on the same playback engine. It plays **your own music library** — FLAC, APE, WAV, MP3 and more, CUE sheets included — untouched, straight to your DAC. It can stream **TIDAL** through the same engine too.
 
 It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) — same bit-perfect playback engine, same USB Rawlink direct-to-DAC output, rebuilt from the ground up with a native Rust UI: faster startup, lower memory, no Python runtime.
 
 ## Highlights
 
 - **Bit-perfect playback** — untouched PCM straight to your DAC
+- **Your music library** — FLAC, APE, WAV, MP3 and more, CUE sheets, tag editing and artwork, see [below](#local-music)
 - **USB Rawlink** (Linux) — direct USB audio transport, bypassing the OS mixer entirely
 - **CoreAudio Exclusive mode** (macOS) — hog mode plus integer mode, the DAC's native rate and format
 - **WASAPI Exclusive mode** (Windows) — the system mixer out of the path, the device at the track's own rate and bit depth
-- **Hi-Res / FLAC streaming** with gapless playback
-- **Local music** (Linux, Windows) — your own folders next to TIDAL, see [below](#local-music-linux-windows)
+- **TIDAL streaming** (optional) — Hi-Res / FLAC with gapless playback, see [below](#tidal-streaming)
 - **Native performance** — a single self-contained binary, instant startup
 - Spectrum visualizer, level meter, synced lyrics, MPRIS integration
 
-## Local music (Linux, Windows)
+## Local music
 
-Pick **Local Music** from the account button at the bottom of the sidebar and
-add your music folders. No TIDAL account is needed for it, and switching back
-keeps you signed in to TIDAL. On Windows a first launch opens straight into
-Local Music; TIDAL asks you to sign in only when you switch to it.
+Add your music folders under **Local Music** — no account, no sign-in. On
+Windows a first launch opens straight into it; on Linux and macOS pick
+**Local Music** from the account button at the bottom of the sidebar.
 
 - **Formats:** FLAC, APE (Monkey's Audio), WAV, AIFF, ALAC, AAC, MP3 and Ogg
-  Vorbis, played bit-perfect like TIDAL streams
+  Vorbis, all played bit-perfect
 - **CUE sheets**, external (UTF-8, UTF-16, GBK) or embedded in FLAC / APE —
   each track plays, seeks and advances like a separate file
-- **The same library as TIDAL:** Albums, Tracks, Artists, Playlists, search,
-  Favorites and its own History; multi-disc albums are one album, playlists
-  can sit in folders and take a cover of your own
+- **A full library:** Albums, Tracks, Artists, Playlists, search, Favorites
+  and History; multi-disc albums are one album, playlists can sit in folders
+  and take a cover of your own
 - **Browse Files:** your folders as they are on disk — edit tags one file or
   many at once (CUE sheets too), move files to the Trash (the Recycle Bin on
   Windows)
@@ -53,6 +52,18 @@ Local Music; TIDAL asks you to sign in only when you switch to it.
 
 Snap users with music on external drives run
 `sudo snap connect oxitide:removable-media` once.
+
+## TIDAL streaming
+
+With a TIDAL subscription OxiTide also streams Hi-Res and lossless FLAC,
+gapless, through the same bit-perfect engine. Switch between Local Music and
+TIDAL from the account button at the bottom of the sidebar; each keeps its
+own library and history, and switching back keeps you signed in.
+
+TIDAL is built into the Linux and macOS builds and the Windows downloads on
+[Releases](https://github.com/yelanxin/OxiTide/releases). The Microsoft Store
+build adds it with the
+[TIDAL plugin](https://github.com/yelanxin/oxitide-tidal-plugin).
 
 Browsing and playback are the same on all three platforms; a few extras are
 still Linux-only. The [feature matrix and roadmap](ROADMAP.md) tracks what
