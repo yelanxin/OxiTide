@@ -1,4 +1,3 @@
-![OxiTide — bit-perfect Hi-Res music player](screenshots/banner.png)
 
 ![Made with Rust](https://img.shields.io/badge/Made%20with-Rust-B7410E?logo=rust&logoColor=white)
 ![Platform: Linux · macOS · Windows](https://img.shields.io/badge/Platform-Linux%20%C2%B7%20macOS%20%C2%B7%20Windows-FCC624?logo=linux&logoColor=black)
