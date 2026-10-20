@@ -49,9 +49,6 @@ Windows a first launch opens straight into it; on Linux and macOS pick
   or from every match found online
 - Lyrics from `.lrc` files or the tags; the library rescans at startup
 
-Snap users with music on external drives run
-`sudo snap connect oxitide:removable-media` once.
-
 ## TIDAL streaming
 
 With a TIDAL subscription OxiTide also streams Hi-Res and lossless FLAC,
@@ -89,156 +86,41 @@ title bar matches the rest of KDE or GNOME.
 
 ## Install
 
-OxiTide is **free to use**. Packages for every supported distribution, the
-macOS app and the Windows build are on the
-[**Releases**](https://github.com/yelanxin/OxiTide/releases) page; on
-Windows it is also in the
-[**Microsoft Store**](https://apps.microsoft.com/detail/9NDB0J7K3TCB?referrer=appbadge&mode=direct).
+Free to use. Every build is also on [Releases](https://github.com/yelanxin/OxiTide/releases/latest).
 
-### macOS
+| Platform | Get it |
+|---|---|
+| **Windows** 10 (1809+) / 11, x64 | <a href="https://apps.microsoft.com/detail/9NDB0J7K3TCB?referrer=appbadge&mode=direct"><img src="https://get.microsoft.com/images/en-us%20dark.svg" height="40" alt="Get it from Microsoft"/></a> <a href="https://github.com/yelanxin/OxiTide/releases/latest"><img src="https://img.shields.io/badge/Installer%20%C2%B7%20Portable-0078D4?style=for-the-badge&logo=windows&logoColor=white" height="40" alt="Windows installer or portable zip"/></a> |
+| **macOS** 14+, Apple silicon and Intel | <a href="https://github.com/yelanxin/OxiTide/releases/latest"><img src="https://img.shields.io/badge/Download%20for%20macOS-000000?style=for-the-badge&logo=apple&logoColor=white" height="40" alt="Download for macOS"/></a> |
+| **Linux** x86_64 | <a href="https://snapcraft.io/oxitide"><img src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" height="40" alt="Get it from the Snap Store"/></a> <a href="https://flatpak.oxitide.com/oxitide.flatpakref"><img src="https://img.shields.io/badge/Flatpak-4A90D9?style=for-the-badge&logo=flatpak&logoColor=white" height="40" alt="Flatpak"/></a> <a href="https://aur.archlinux.org/packages/oxitide-bin"><img src="https://img.shields.io/aur/version/oxitide-bin?style=for-the-badge&logo=archlinux&logoColor=white&label=AUR&color=1793D1" height="40" alt="AUR"/></a> <a href="https://github.com/yelanxin/OxiTide/releases/latest"><img src="https://img.shields.io/badge/.deb%20%C2%B7%20.rpm-E95420?style=for-the-badge&logo=linux&logoColor=white" height="40" alt="deb and rpm packages"/></a> |
 
-macOS 14 or later; Apple silicon and Intel in one bundle.
+**One-line install** on Linux or macOS — picks the right package (Arch,
+Debian 13+, Ubuntu 24.04+, Fedora 43+, openSUSE Tumbleweed, or the Mac app);
+re-run it to update:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yelanxin/OxiTide/main/install.sh | bash
 ```
 
-Downloads the newest build, verifies its checksum, puts `OxiTide.app` in
-Applications and clears it to open. Re-run it to update.
+Flatpak from the command line:
+`flatpak install --user https://flatpak.oxitide.com/oxitide.flatpakref`
 
-By hand instead: unzip `OxiTide-<ver>-macos-universal.zip` from
-[Releases](https://github.com/yelanxin/OxiTide/releases) into Applications.
-The build is not notarized yet, so the first launch needs **System Settings
-→ Privacy & Security → Open Anyway**.
+**First launch**
 
-The project does not have an Apple Developer membership yet, which is what
-signing and notarizing require. [Sponsorship](https://github.com/sponsors/yelanxin)
-is very welcome and goes towards it: with the membership in place the macOS
-build will be signed, and it will open without any warning.
+- **macOS** — not notarized yet: **System Settings → Privacy & Security → Open Anyway**.
+- **Windows** (Releases downloads) — not code-signed yet: **More info → Run anyway**.
+  The Store build is signed and adds TIDAL with the
+  [TIDAL plugin](https://github.com/yelanxin/oxitide-tidal-plugin).
+- **Snap** — if your DAC or music on an external drive is not found:
+  `sudo snap connect oxitide:alsa`, `oxitide:raw-usb`, `oxitide:removable-media`.
 
-For bit-perfect playback turn on **Exclusive access** in Settings → Audio:
-OxiTide takes the device in CoreAudio hog mode and runs it at the track's own
-rate and bit depth. Settings and login live in
-`~/Library/Application Support/OxiTide`, logs in
-`~/Library/Logs/OxiTide/oxitide.log`.
+**Bit-perfect output:** USB Rawlink on Linux asks for authorization on first
+use; on macOS turn on **Exclusive access** (Settings → Audio), on Windows
+**exclusive mode** (Settings → Output).
 
-A few of the Linux build's extras are not ported yet — the
-[feature matrix](ROADMAP.md) tracks what each build has.
-
-### Windows
-
-Windows 10 (1809 or later) or Windows 11, 64-bit.
-
-#### Microsoft Store
-
-<a href="https://apps.microsoft.com/detail/9NDB0J7K3TCB?referrer=appbadge&mode=direct"><img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200" alt="Get it from Microsoft"/></a>
-
-Signed by Microsoft, so it opens without a SmartScreen warning, and the Store
-keeps it up to date. The Store build plays local music; TIDAL streaming is a
-separate plugin — see
-[oxitide-tidal-plugin](https://github.com/yelanxin/oxitide-tidal-plugin) to
-add it.
-
-#### Installer or portable zip
-
-Two downloads on the
-[Releases](https://github.com/yelanxin/OxiTide/releases) page, both with
-TIDAL included and neither needing a runtime installed first:
-
-| Download | What it does |
-|---|---|
-| `OxiTide-<ver>-windows-x64.exe` | Installs into Program Files, with a Start menu entry and an uninstall entry |
-| `OxiTide-<ver>-windows-x64-portable.zip` | Unzip and run `OxiTide.exe` from anywhere — nothing is installed |
-
-These builds are not code-signed yet, so the first launch shows **"Windows
-protected your PC"**: choose **More info → Run anyway** (or install from the
-Microsoft Store above).
-
-The project does not have a code-signing certificate yet.
-[Sponsorship](https://github.com/sponsors/yelanxin) is very welcome and goes
-towards one: a signed build no longer trips SmartScreen.
-
-Output goes through **WASAPI**, shared with other apps on a first run. For
-bit-perfect playback turn on **exclusive mode** in **Settings → Output**: the
-system mixer is out of the path and the device runs at the track's own rate
-and bit depth.
-Settings, the session token and the local music library live in
-`%APPDATA%\OxiTide`; the cover cache and the engine's `oxitide.log` in
-`%LOCALAPPDATA%\OxiTide`.
-
-The Now Playing page, the visualizer, the DSP chain, scrobbling, media keys
-and the tray icon are not ported yet — the [feature matrix](ROADMAP.md)
-tracks what each build has.
-
-### Linux
-
-#### Quick install
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/yelanxin/OxiTide/main/install.sh | bash
-```
-
-Detects your distribution, downloads the matching package from the newest
-release that has one, and installs it with your native package manager
-(x86_64: Arch, Debian 13+, Ubuntu 24.04+, Fedora 43+, openSUSE Tumbleweed
-— and their derivatives). The same script installs the macOS build on a Mac.
-
-#### Snap
-
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/oxitide)
-
-Available on any distribution with snapd:
-
-```bash
-sudo snap install oxitide
-```
-
-If audio output or your USB DAC is not detected, connect the audio interfaces
-once (not needed after the store enables auto-connection):
-
-```bash
-sudo snap connect oxitide:alsa
-sudo snap connect oxitide:raw-usb
-```
-
-#### Flatpak
-
-Available on any distribution from the official OxiTide Flatpak repository
-([flatpak.oxitide.com](https://flatpak.oxitide.com)):
-
-```bash
-flatpak install --user https://flatpak.oxitide.com/oxitide.flatpakref
-```
-
-Launch it from the app menu, or with
-`flatpak run io.github.yelanxin.OxiTide`. The GNOME runtime is fetched from
-Flathub automatically. For bit-perfect USB Rawlink output the app asks you to
-install a one-line udev rule on first use (the Flatpak sandbox cannot install
-it itself).
-
-#### Manual install
-
-| Distribution | Install |
-|---|---|
-| <img src="https://cdn.simpleicons.org/archlinux" width="16" alt=""/> Arch Linux / Manjaro / CachyOS | `yay -S oxitide-bin` (AUR: [oxitide-bin](https://aur.archlinux.org/packages/oxitide-bin)) — or `sudo pacman -U oxitide-<ver>-1-x86_64_archlinux.pkg.tar.zst` |
-| <img src="https://cdn.simpleicons.org/debian" width="16" alt=""/> Debian 13+ | `sudo apt install ./oxitide_<ver>_amd64_debian13.deb` |
-| <img src="https://cdn.simpleicons.org/ubuntu" width="16" alt=""/> Ubuntu 24.04 / 26.04 | `sudo apt install ./oxitide_<ver>_amd64_ubuntu2404.deb` (or `_ubuntu2604.deb`) |
-| <img src="https://cdn.simpleicons.org/fedora" width="16" alt=""/> Fedora 43 / 44 | `sudo dnf install ./oxitide-<ver>-1.fedora.x86_64_fedora44.rpm` (or `_fedora43.rpm`) |
-| <img src="https://cdn.simpleicons.org/opensuse" width="16" alt=""/> openSUSE Tumbleweed | `sudo zypper install ./oxitide-<ver>-1.opensuse.x86_64_opensuse_tumbleweed.rpm` |
-
-Requirements: GTK 4.14+ and, for streaming, a TIDAL subscription (local music needs none) (Debian 12 is not supported).
-For bit-perfect USB Rawlink output the package installs a udev rule and a polkit
-action so the app can claim your DAC — the first use asks for authorization.
-
-Settings and login live in `~/.config/oxitide`, so OxiTide installs cleanly
-alongside hiresTI.
-
-#### Updating
-
-Re-run the quick-install command above (it always picks the latest release and
-upgrades in place), or download the new package and install it the same way.
-AUR: `yay -Syu`. Flatpak: `flatpak update`. Snap updates automatically. The app also checks for new
-releases itself (**Check for Updates** in the menu).
+Linux needs GTK 4.14+ (Debian 12 is not supported). Signing on macOS and
+Windows needs an Apple Developer membership and a code-signing certificate —
+[sponsorship](https://github.com/sponsors/yelanxin) goes towards both.
 
 ## License
 
