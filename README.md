@@ -61,10 +61,6 @@ TIDAL is built into the Linux and macOS builds and the Windows downloads on
 build adds it with the
 [TIDAL plugin](https://github.com/yelanxin/oxitide-tidal-plugin).
 
-Browsing and playback are the same on all three platforms; a few extras are
-still Linux-only. The [feature matrix and roadmap](ROADMAP.md) tracks what
-each build has today and what is coming next.
-
 **Linux** — GTK4 / libadwaita. The window is decorated by your desktop, so the
 title bar matches the rest of KDE or GNOME.
 
