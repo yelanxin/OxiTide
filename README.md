@@ -22,6 +22,7 @@ It is the native successor to [hiresTI](https://github.com/yelanxin/hiresTI) —
 - **Bit-perfect playback** — untouched PCM straight to your DAC
 - **Your music library** — FLAC, APE, WAV, MP3 and more, CUE sheets, tag editing and artwork, see [below](#local-music)
 - **USB Rawlink** (Linux) — direct USB audio transport, bypassing the OS mixer entirely
+- **BT Rawlink** (Linux) — Bluetooth headphones held by the player: its own encoder, each track's sample rate, no system mixer, see [below](#bt-rawlink)
 - **CoreAudio Exclusive mode** (macOS) — hog mode plus integer mode, the DAC's native rate and format
 - **WASAPI Exclusive mode** (Windows) — the system mixer out of the path, the device at the track's own rate and bit depth
 - **TIDAL streaming** (optional) — Hi-Res / FLAC with gapless playback, see [below](#tidal-streaming)
@@ -60,6 +61,31 @@ TIDAL is built into the Linux and macOS builds and the Windows downloads on
 [Releases](https://github.com/yelanxin/OxiTide/releases). The Microsoft Store
 build adds it with the
 [TIDAL plugin](https://github.com/yelanxin/oxitide-tidal-plugin).
+
+## BT Rawlink
+
+<img src="screenshots/bt-rawlink.png" alt="BT Rawlink: your track goes to OxiTide, which decodes and encodes it itself at the track's own sample rate, and on to your headphones, with no system mixer or resampling in between. Codecs: LDAC, aptX HD, aptX, AAC, Opus, SBC-XQ, SBC." width="900">
+
+Bluetooth audio is always encoded in software by whichever program holds the
+headphones, normally the system's sound server, after its mixer and resampler.
+With BT Rawlink, on Linux, OxiTide holds them, the way USB Rawlink holds a DAC:
+
+- **Its own encoder** — LDAC, aptX HD, aptX, AAC, Opus, SBC-XQ or SBC. The
+  Codec setting lists what your headphones and your machine have in common.
+- **The track's sample rate** — the stream switches to it where the codec has
+  it, or stays at a rate you fix.
+- **Hardware volume** — the slider drives the headphones' own volume, so the
+  audio is not attenuated digitally.
+- **Bitrate** — selectable for LDAC (990 / 660 / 330 kbps), AAC and SBC.
+
+Pick **BT Rawlink** under Settings → Audio Device → Output driver. While it is
+selected the system's own Bluetooth audio is switched off: other programs
+cannot play to Bluetooth devices, and speakers, HDMI and other outputs keep
+working. Everything is put back when you pick another driver or close the
+player. It is still lossy, as Bluetooth audio always is. Available in the
+native packages and the Flatpak, not in the snap.
+
+## Screenshots
 
 **Linux** — GTK4 / libadwaita. The window is decorated by your desktop, so the
 title bar matches the rest of KDE or GNOME.
